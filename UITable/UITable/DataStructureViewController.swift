@@ -10,9 +10,9 @@ import UIKit
 
 class DataStructureViewController: UITableViewController {
 
-    let cellIdentifier = "SimpleTextLabel"
-    let modelDataStructure = ArrayData()
-    let colorSeparator = UIColor.black
+    private let cellIdentifier = "SimpleTextLabel"
+    private let modelDataStructure = ArrayData()
+    private let colorSeparator = UIColor.black
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,14 +81,16 @@ class DataStructureViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+        guard let index = tableView.indexPathForSelectedRow?.row else { return }
+        guard let destination = segue.destination as? StructureViewController else { return }
+
+        destination.nameStructure = modelDataStructure.getDataStructureName(at: index)
     }
-    */
+    
 
 }
