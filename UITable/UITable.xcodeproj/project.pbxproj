@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28318B832080CD0000A3E4C4 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28318B822080CD0000A3E4C4 /* DataStructure.swift */; };
 		286129C0207F647D0070600C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286129BF207F647D0070600C /* AppDelegate.swift */; };
 		286129C5207F647D0070600C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286129C3207F647D0070600C /* Main.storyboard */; };
 		286129C7207F647D0070600C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286129C6207F647D0070600C /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28318B822080CD0000A3E4C4 /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
 		286129BC207F647D0070600C /* UITable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286129BF207F647D0070600C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286129C4207F647D0070600C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				286C9FB62080A680006AA8FF /* ArrayDataProtocol.swift */,
 				286C9FB82080A890006AA8FF /* ArrayData.swift */,
+				28318B822080CD0000A3E4C4 /* DataStructure.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				286129F0207F71330070600C /* DataStructureViewCell.swift in Sources */,
 				286129C0207F647D0070600C /* AppDelegate.swift in Sources */,
 				286C9FB92080A890006AA8FF /* ArrayData.swift in Sources */,
+				28318B832080CD0000A3E4C4 /* DataStructure.swift in Sources */,
 				286C9FB72080A680006AA8FF /* ArrayDataProtocol.swift in Sources */,
 				286129EE207F66120070600C /* DataStructureViewController.swift in Sources */,
 			);
