@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class DataStructureViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     
@@ -23,7 +23,9 @@ class TableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+        
     }
+    
+    
 
 }

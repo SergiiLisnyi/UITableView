@@ -8,13 +8,16 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class DataStructureViewController: UITableViewController {
 
-    var arrayDataStructure : [String] = ["Stack", "Queue","Set","Dequeue","Priority Queue", "List(Array)", "MultiSet", "Dictionary"]
     let cellIdentifier = "cell"
+    let modelDataStructure = ArrayData()
+    let colorSeparator = UIColor.black
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSeparator(color: colorSeparator)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,20 +31,29 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayDataStructure.count
+        return modelDataStructure.count()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TableViewCell else {
-            fatalError("The dequeued cell is not an instance of TableViewCell.")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DataStructureViewCell else {
+            fatalError("The dequeued cell is not an instance of DataStructureViewCell.")
         }
         
-        let curentTextInCell = arrayDataStructure[indexPath.row]
+        let curentTextInCell = modelDataStructure.getDataStructure(at: indexPath.row)
         cell.initCell(name: curentTextInCell)
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Select cell with index: \(indexPath.row)")
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func setSeparator(color: UIColor){
+        self.tableView.separatorColor = color
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
