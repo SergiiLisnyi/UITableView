@@ -11,6 +11,7 @@ import UIKit
 class TableViewController: UITableViewController {
 
     var arrayDataStructure : [String] = ["Stack", "Queue","Set","Dequeue","Priority Queue", "List(Array)", "MultiSet", "Dictionary"]
+    let cellIdentifier = "cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,11 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TableViewCell else {
+            fatalError("The dequeued cell is not an instance of TableViewCell.")
+        }
+        
         let curentTextInCell = arrayDataStructure[indexPath.row]
         cell.initCell(name: curentTextInCell)
         return cell
