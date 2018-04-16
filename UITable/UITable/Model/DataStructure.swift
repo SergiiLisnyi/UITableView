@@ -8,6 +8,11 @@
 
 import Foundation
 
-struct  DataStructure {
-    let name: String
+struct  DataStructure : DataStructureProtocol {
+    
+    var name: String
+    
+    func configure(name: String, cell: DataStructureViewCell) {
+            cell.label.text = name
+    }
 }

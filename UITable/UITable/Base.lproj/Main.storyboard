@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Data Structure View Controller-->
+        <!--Data Structure-->
         <scene sceneID="MX5-9S-qPU">
             <objects>
                 <tableViewController id="bli-1X-IbK" customClass="DataStructureViewController" customModule="UITable" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,7 +48,6 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="label" destination="UHb-Mc-tEm" id="WYL-ch-mna"/>
-                                    <segue destination="fhf-3a-hY3" kind="show" id="aXf-4g-Dx6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -57,34 +56,81 @@
                             <outlet property="delegate" destination="bli-1X-IbK" id="Lij-se-HaC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yRo-DB-kbi"/>
+                    <navigationItem key="navigationItem" title="Data Structure" id="yRo-DB-kbi"/>
+                    <connections>
+                        <segue destination="JIY-5k-lpm" kind="show" id="MvC-Ga-le1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZa-Br-N5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="872.79999999999995" y="-18.440779610194905"/>
         </scene>
-        <!--Structure View Controller-->
+        <!--Detail Controller-->
+        <scene sceneID="54Q-nt-CsZ">
+            <objects>
+                <viewController storyboardIdentifier="storyBoardID" id="JIY-5k-lpm" customClass="DetailController" customModule="UITable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GuP-vL-FM6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-lY-zbR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O25-rn-BRx">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="O25-rn-BRx" secondAttribute="bottom" id="2fE-c3-MWP"/>
+                                    <constraint firstItem="O25-rn-BRx" firstAttribute="top" secondItem="eGy-lY-zbR" secondAttribute="top" id="7yr-rS-7tf"/>
+                                    <constraint firstItem="O25-rn-BRx" firstAttribute="width" secondItem="eGy-lY-zbR" secondAttribute="width" id="G7l-wy-en4"/>
+                                    <constraint firstItem="O25-rn-BRx" firstAttribute="leading" secondItem="eGy-lY-zbR" secondAttribute="leading" id="J4E-vm-Qe0"/>
+                                    <constraint firstAttribute="trailing" secondItem="O25-rn-BRx" secondAttribute="trailing" id="VyB-mW-j6R"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xMQ-HB-CX1" firstAttribute="bottom" secondItem="eGy-lY-zbR" secondAttribute="bottom" id="iKj-Qm-zZW"/>
+                            <constraint firstItem="eGy-lY-zbR" firstAttribute="width" secondItem="GuP-vL-FM6" secondAttribute="width" id="of3-Qr-cc6"/>
+                            <constraint firstItem="eGy-lY-zbR" firstAttribute="leading" secondItem="xMQ-HB-CX1" secondAttribute="leading" id="u9h-Rm-J8H"/>
+                            <constraint firstItem="eGy-lY-zbR" firstAttribute="height" secondItem="GuP-vL-FM6" secondAttribute="height" id="ucD-8U-bht"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xMQ-HB-CX1"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="eGy-lY-zbR" id="xJr-QJ-hCa"/>
+                        <outlet property="textLabel" destination="O25-rn-BRx" id="9p7-aT-cw3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDn-ME-obn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1660" y="-18.440779610194905"/>
+        </scene>
+        <!--Detail Structure View Controller-->
         <scene sceneID="wMO-uk-743">
             <objects>
-                <viewController id="fhf-3a-hY3" customClass="StructureViewController" customModule="UITable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fhf-3a-hY3" customClass="DetailStructureViewController" customModule="UITable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UgB-qB-cEw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNs-j1-iX7">
-                                <rect key="frame" x="15" y="84" width="345" height="383"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNs-j1-iX7">
+                                <rect key="frame" x="37" y="64" width="300" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-MR-EWL">
+                                <rect key="frame" x="16" y="172" width="343" height="475"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="aNs-j1-iX7" firstAttribute="leading" secondItem="FAk-eL-CDm" secondAttribute="leading" constant="15" id="2Zk-l8-2nv"/>
-                            <constraint firstItem="FAk-eL-CDm" firstAttribute="trailing" secondItem="aNs-j1-iX7" secondAttribute="trailing" constant="15" id="JQR-yd-mY3"/>
-                            <constraint firstItem="aNs-j1-iX7" firstAttribute="top" secondItem="FAk-eL-CDm" secondAttribute="top" constant="20" id="VmP-HI-kw3"/>
-                            <constraint firstItem="FAk-eL-CDm" firstAttribute="bottom" secondItem="aNs-j1-iX7" secondAttribute="bottom" constant="200" id="wSF-ne-JpK"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FAk-eL-CDm"/>
                     </view>
                     <connections>
@@ -93,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5C-ac-ITF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1702" y="-18"/>
+            <point key="canvasLocation" x="1660" y="-701"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bvB-0L-fYS">

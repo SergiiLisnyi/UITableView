@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StructureViewController: UIViewController {
+class DetailStructureViewController: UIViewController {
 
     @IBOutlet weak var labelName: UILabel!
     var nameStructure: String = ""

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2809C8802084922F00138B46 /* DataStructureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2809C87F2084922F00138B46 /* DataStructureProtocol.swift */; };
+		2809C88220849A5C00138B46 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2809C88120849A5C00138B46 /* DetailController.swift */; };
 		28318B832080CD0000A3E4C4 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28318B822080CD0000A3E4C4 /* DataStructure.swift */; };
-		28318B852080E0BA00A3E4C4 /* StructureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28318B842080E0BA00A3E4C4 /* StructureViewController.swift */; };
+		28318B852080E0BA00A3E4C4 /* DetailStructureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28318B842080E0BA00A3E4C4 /* DetailStructureViewController.swift */; };
 		286129C0207F647D0070600C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286129BF207F647D0070600C /* AppDelegate.swift */; };
 		286129C5207F647D0070600C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286129C3207F647D0070600C /* Main.storyboard */; };
 		286129C7207F647D0070600C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286129C6207F647D0070600C /* Assets.xcassets */; };
@@ -39,8 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2809C87F2084922F00138B46 /* DataStructureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureProtocol.swift; sourceTree = "<group>"; };
+		2809C88120849A5C00138B46 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		28318B822080CD0000A3E4C4 /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
-		28318B842080E0BA00A3E4C4 /* StructureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureViewController.swift; sourceTree = "<group>"; };
+		28318B842080E0BA00A3E4C4 /* DetailStructureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStructureViewController.swift; sourceTree = "<group>"; };
 		286129BC207F647D0070600C /* UITable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286129BF207F647D0070600C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286129C4207F647D0070600C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +88,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2809C8832084D7EE00138B46 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				286129ED207F66120070600C /* DataStructureViewController.swift */,
+				28318B842080E0BA00A3E4C4 /* DetailStructureViewController.swift */,
+				2809C88120849A5C00138B46 /* DetailController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2809C8842084D83F00138B46 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2809C87F2084922F00138B46 /* DataStructureProtocol.swift */,
+				286C9FB62080A680006AA8FF /* ArrayDataProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		286129B3207F647D0070600C = {
 			isa = PBXGroup;
 			children = (
@@ -107,11 +130,11 @@
 		286129BE207F647D0070600C /* UITable */ = {
 			isa = PBXGroup;
 			children = (
+				2809C8842084D83F00138B46 /* Protocol */,
+				2809C8832084D7EE00138B46 /* Controller */,
 				286C9FB32080A1C5006AA8FF /* Model */,
 				286129BF207F647D0070600C /* AppDelegate.swift */,
 				286129EF207F71330070600C /* DataStructureViewCell.swift */,
-				286129ED207F66120070600C /* DataStructureViewController.swift */,
-				28318B842080E0BA00A3E4C4 /* StructureViewController.swift */,
 				286129C3207F647D0070600C /* Main.storyboard */,
 				286129C6207F647D0070600C /* Assets.xcassets */,
 				286129C8207F647D0070600C /* LaunchScreen.storyboard */,
@@ -141,7 +164,6 @@
 		286C9FB32080A1C5006AA8FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				286C9FB62080A680006AA8FF /* ArrayDataProtocol.swift */,
 				286C9FB82080A890006AA8FF /* ArrayData.swift */,
 				28318B822080CD0000A3E4C4 /* DataStructure.swift */,
 			);
@@ -284,10 +306,12 @@
 			files = (
 				286129F0207F71330070600C /* DataStructureViewCell.swift in Sources */,
 				286129C0207F647D0070600C /* AppDelegate.swift in Sources */,
-				28318B852080E0BA00A3E4C4 /* StructureViewController.swift in Sources */,
+				28318B852080E0BA00A3E4C4 /* DetailStructureViewController.swift in Sources */,
+				2809C8802084922F00138B46 /* DataStructureProtocol.swift in Sources */,
 				286C9FB92080A890006AA8FF /* ArrayData.swift in Sources */,
 				28318B832080CD0000A3E4C4 /* DataStructure.swift in Sources */,
 				286C9FB72080A680006AA8FF /* ArrayDataProtocol.swift in Sources */,
+				2809C88220849A5C00138B46 /* DetailController.swift in Sources */,
 				286129EE207F66120070600C /* DataStructureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
