@@ -7,16 +7,16 @@
 //
 class ArrayData : ArrayDataProtocol {
     
-    private let dataStack = DataStructure(name: "Stack")
-    private let dataQueue = DataStructure(name: "Queue")
-    private let dataSet = DataStructure(name: "Set")
-    private let dataDequeu = DataStructure(name: "Dequeue")
-    private let dataPriorityQueue = DataStructure(name: "Priority Queue")
-    private let dataList = DataStructure(name: "List(Array)")
-    private let dataMultiSet = DataStructure(name: "MultiSet")
-    private let dataDictionary = DataStructure(name: "Dictionary")
+    private let dataStack = DataStructureEntity(name: "Stack")
+    private let dataQueue = DataStructureEntity(name: "Queue")
+    private let dataSet = DataStructureEntity(name: "Set")
+    private let dataDequeu = DataStructureEntity(name: "Dequeue")
+    private let dataPriorityQueue = DataStructureEntity(name: "Priority Queue")
+    private let dataList = DataStructureEntity(name: "List(Array)")
+    private let dataMultiSet = DataStructureEntity(name: "MultiSet")
+    private let dataDictionary = DataStructureEntity(name: "Dictionary")
     
-    private var arrayDataStructure : [DataStructure] = []
+    private var arrayDataStructure : [DataStructureEntity] = []
     
     func initModel() {
         arrayDataStructure.append(dataStack)
@@ -33,8 +33,9 @@ class ArrayData : ArrayDataProtocol {
         return arrayDataStructure.count
     }
     
-    func getDataStructureName(at: Int) -> String {
-        return arrayDataStructure[at].name
+    func getDataStructure(at: Int) -> DataStructureProtocol {
+        return arrayDataStructure[at]
     }
+    
     
 }

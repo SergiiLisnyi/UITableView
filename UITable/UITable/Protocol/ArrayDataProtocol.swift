@@ -8,7 +8,6 @@
 
 protocol ArrayDataProtocol {
     var count: Int { get }
-    
     func initModel()
-    func getDataStructureName(at: Int) -> String
+    func getDataStructure(at: Int) -> DataStructureProtocol
 }

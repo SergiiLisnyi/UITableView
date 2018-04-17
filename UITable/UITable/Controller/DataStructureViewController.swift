@@ -10,7 +10,7 @@ import UIKit
 
 class DataStructureViewController: UITableViewController {
 
-    let storyBoardID = "storyBoardID"
+    private let storyBoardID = "storyBoardID"
     private let cellIdentifier = "SimpleTextLabel"
     private let modelDataStructure = ArrayData()
     private let colorSeparator = UIColor.black
@@ -32,9 +32,7 @@ class DataStructureViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DataStructureViewCell else {
             return UITableViewCell()
         }
-        
-        let curentTextInCell = modelDataStructure.getDataStructureName(at: indexPath.row)
-        cell.initCell(name: curentTextInCell)
+        cell.configure(model: getModelPrototype(indexPath.row))
         return cell
     }
     
@@ -42,14 +40,16 @@ class DataStructureViewController: UITableViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let detailStoryBoard = storyboard.instantiateViewController(withIdentifier: storyBoardID) as? DetailController else { return }
-        
-        self.navigationController?.navigationBar.topItem?.title = modelDataStructure.getDataStructureName(at: indexPath.row)
+        detailStoryBoard.model = getModelPrototype(indexPath.row)
         self.navigationController?.pushViewController(detailStoryBoard, animated: true)
-        
-        
-        
+
 //        print("Select cell with index: \(indexPath.row)")
 //        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    func getModelPrototype(_ index: Int) -> DataStructureProtocol{
+        return modelDataStructure.getDataStructure(at: index)
     }
     
     func setSeparator(color: UIColor){
@@ -94,18 +94,10 @@ class DataStructureViewController: UITableViewController {
     
     // MARK: - Navigation
 
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        
-        
-        
-        
-
-//        guard let index = tableView.indexPathForSelectedRow?.row else { return }
-//        guard let destination = segue.destination as? DetailStructureViewController else { return }
-//        destination.nameStructure = modelDataStructure.getDataStructureName(at: index)
-    }
-    
-
+        guard let index = tableView.indexPathForSelectedRow?.row else { return }
+        guard let destination = segue.destination as? DetailStructureViewController else { return }
+        destination.nameStructure = modelDataStructure.getDataStructureName(at: index)
+    }*/
 }

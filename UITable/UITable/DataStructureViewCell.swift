@@ -12,16 +12,24 @@ class DataStructureViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     
-    func initCell (name: String){
-        label.text = name
-    }
+//    func initCell (name: String){
+//        label.text = name
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+}
+
+
+extension DataStructureViewCell: ConfigureCellProtocol {
+    
+    func configure(model: DataStructureProtocol) {
+        //label.text = model.currentDataStruct?.name
+        label.text = model.getName()
     }
 }
