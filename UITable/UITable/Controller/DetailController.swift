@@ -17,6 +17,7 @@ class DetailController: UIViewController {
     @IBOutlet weak var viewForOpacity: UIView!
     
     
+  //  @IBOutlet weak var constrainBottom33: NSLayoutConstraint!
     
     @IBOutlet weak var heightForViewO: NSLayoutConstraint!
     
@@ -42,8 +43,7 @@ class DetailController: UIViewController {
         //moreButton.setTitle("Less", for: .selected)
         
        viewForOpacity.opacityGradient()
-        
-  
+      // constrainBottom33.priority = UILayoutPriority(lowPriority)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,10 +57,9 @@ class DetailController: UIViewController {
             moreButton.setTitle("Less", for: .normal)
             constrainLayout.priority = UILayoutPriority(lowPriority)
 
-            labelConstrainBottom.priority = UILayoutPriority(lowPriority)
-            //textLabel.bottomAnchor.constraint(equalTo: viewForButton.topAnchor, constant: 0)
-            //  viewForButton.alpha = 0.0
-            //moreButton.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 0)
+        //    labelConstrainBottom.priority = UILayoutPriority(lowPriority)
+            labelConstrainBottom.constant = 10
+            
             viewForOpacity.isHidden = true
             textOpen = true
         } else {
@@ -68,6 +67,7 @@ class DetailController: UIViewController {
             constrainLayout.priority = UILayoutPriority(highPriority)
             viewForOpacity.isHidden = false
             textOpen = false
+            
         }
     }
 }
@@ -78,7 +78,7 @@ extension UIView {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
-        gradient.locations = [0.1, 0.5, 1]
+        gradient.locations = [0 , 1]
         self.layer.mask = gradient
     }
 }

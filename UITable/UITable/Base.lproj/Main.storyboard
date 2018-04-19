@@ -85,6 +85,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juV-EJ-qjZ">
                                                 <rect key="frame" x="8" y="8" width="398" height="328"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -93,44 +94,43 @@
                                                 <rect key="frame" x="0.0" y="228" width="414" height="108"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrL-Qo-Odc">
-                                                <rect key="frame" x="167" y="306" width="80" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="kku-QR-ri1"/>
-                                                    <constraint firstAttribute="height" constant="30" id="sAn-Xp-Rgz"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="moreButtonTapped:" destination="JIY-5k-lpm" eventType="touchUpInside" id="1Xy-Gb-lwY"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="juV-EJ-qjZ" secondAttribute="trailing" constant="8" id="3EY-JY-G0m"/>
-                                            <constraint firstItem="HrL-Qo-Odc" firstAttribute="bottom" secondItem="juV-EJ-qjZ" secondAttribute="bottom" priority="999" id="4kk-7k-Ibf"/>
                                             <constraint firstItem="0zJ-Ts-P3V" firstAttribute="leading" secondItem="h6R-3G-NDz" secondAttribute="leading" id="CST-2B-Vaa"/>
                                             <constraint firstItem="0zJ-Ts-P3V" firstAttribute="width" secondItem="h6R-3G-NDz" secondAttribute="width" id="GtC-Wc-aX5"/>
-                                            <constraint firstItem="HrL-Qo-Odc" firstAttribute="bottom" secondItem="juV-EJ-qjZ" secondAttribute="bottom" priority="750" constant="30" id="KGt-Uo-2Tp" userLabel="More Button.bottom = Text Label.bottom + 30 @750"/>
-                                            <constraint firstItem="HrL-Qo-Odc" firstAttribute="centerX" secondItem="juV-EJ-qjZ" secondAttribute="centerX" id="OF2-8l-mX1"/>
                                             <constraint firstItem="juV-EJ-qjZ" firstAttribute="leading" secondItem="h6R-3G-NDz" secondAttribute="leading" constant="8" id="bYk-Gc-zrD"/>
                                             <constraint firstItem="0zJ-Ts-P3V" firstAttribute="height" secondItem="juV-EJ-qjZ" secondAttribute="height" multiplier="0.33" id="cMp-Dp-OEM"/>
-                                            <constraint firstItem="0zJ-Ts-P3V" firstAttribute="bottom" secondItem="HrL-Qo-Odc" secondAttribute="bottom" id="cPh-bU-2HS"/>
                                             <constraint firstAttribute="bottom" secondItem="juV-EJ-qjZ" secondAttribute="bottom" id="gOd-mv-gSW"/>
                                             <constraint firstAttribute="trailing" secondItem="0zJ-Ts-P3V" secondAttribute="trailing" id="izp-QR-JCg"/>
                                             <constraint firstItem="juV-EJ-qjZ" firstAttribute="top" secondItem="h6R-3G-NDz" secondAttribute="top" constant="8" id="w09-sB-37x"/>
+                                            <constraint firstItem="0zJ-Ts-P3V" firstAttribute="bottom" secondItem="juV-EJ-qjZ" secondAttribute="bottom" id="ynv-aE-jut"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrL-Qo-Odc">
+                                        <rect key="frame" x="167" y="306" width="80" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="kku-QR-ri1"/>
+                                            <constraint firstAttribute="height" constant="30" id="sAn-Xp-Rgz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="moreButtonTapped:" destination="JIY-5k-lpm" eventType="touchUpInside" id="1Xy-Gb-lwY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="h6R-3G-NDz" firstAttribute="height" secondItem="Yek-q8-NVu" secondAttribute="height" multiplier="1:2" priority="999" id="8gu-oU-1Nm"/>
                                     <constraint firstItem="h6R-3G-NDz" firstAttribute="top" secondItem="Yek-q8-NVu" secondAttribute="top" id="DEN-Hf-Eg5"/>
-                                    <constraint firstAttribute="bottom" secondItem="h6R-3G-NDz" secondAttribute="bottom" id="J80-se-bxN"/>
+                                    <constraint firstAttribute="bottom" secondItem="h6R-3G-NDz" secondAttribute="bottom" constant="50" id="J80-se-bxN"/>
                                     <constraint firstAttribute="trailing" secondItem="h6R-3G-NDz" secondAttribute="trailing" id="S5F-tI-F1z"/>
+                                    <constraint firstItem="HrL-Qo-Odc" firstAttribute="top" secondItem="h6R-3G-NDz" secondAttribute="bottom" constant="-30" id="ejo-HA-K5c"/>
+                                    <constraint firstItem="HrL-Qo-Odc" firstAttribute="centerX" secondItem="juV-EJ-qjZ" secondAttribute="centerX" id="nE9-Gs-U0h"/>
                                     <constraint firstItem="h6R-3G-NDz" firstAttribute="leading" secondItem="Yek-q8-NVu" secondAttribute="leading" id="qE4-Ob-K3L"/>
                                 </constraints>
                             </scrollView>
@@ -148,7 +148,7 @@
                     </view>
                     <connections>
                         <outlet property="constrainLayout" destination="8gu-oU-1Nm" id="5Z8-kj-e7f"/>
-                        <outlet property="labelConstrainBottom" destination="4kk-7k-Ibf" id="VZo-iY-AUr"/>
+                        <outlet property="labelConstrainBottom" destination="ejo-HA-K5c" id="0tu-Om-xwb"/>
                         <outlet property="mainView" destination="GuP-vL-FM6" id="UuN-yG-gqb"/>
                         <outlet property="moreButton" destination="HrL-Qo-Odc" id="D1y-rc-E4Z"/>
                         <outlet property="scrollView" destination="Yek-q8-NVu" id="DY6-QY-ViY"/>
