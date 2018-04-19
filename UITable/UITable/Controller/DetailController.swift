@@ -12,16 +12,76 @@ class DetailController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var moreButton: UIButton!
     
+    @IBOutlet weak var viewForOpacity: UIView!
+    
+    
+    
+    @IBOutlet weak var heightForViewO: NSLayoutConstraint!
+    
+    @IBOutlet weak var constrainLayout: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var labelConstrainBottom: NSLayoutConstraint!
+    
+    
+    @IBOutlet var mainView: UIView!
+    
+    let lowPriority = Float(250)
+    let highPriority = Float(999)
+    var textOpen = false
     var model: DataStructureProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textLabel.text = model?.getDescr()
         self.title = model?.getName()
+        
+        moreButton.setTitle("More", for: .normal)
+        //moreButton.setTitle("Less", for: .selected)
+        
+       viewForOpacity.opacityGradient()
+        
+  
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
+    @IBAction func moreButtonTapped(_ sender: UIButton) {
+
+        if textOpen == false {
+            moreButton.setTitle("Less", for: .normal)
+            constrainLayout.priority = UILayoutPriority(lowPriority)
+
+            labelConstrainBottom.priority = UILayoutPriority(lowPriority)
+            //textLabel.bottomAnchor.constraint(equalTo: viewForButton.topAnchor, constant: 0)
+            //  viewForButton.alpha = 0.0
+            //moreButton.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 0)
+            viewForOpacity.isHidden = true
+            textOpen = true
+        } else {
+            moreButton.setTitle("More", for: .normal)
+            constrainLayout.priority = UILayoutPriority(highPriority)
+            viewForOpacity.isHidden = false
+            textOpen = false
+        }
+    }
 }
+
+
+extension UIView {
+    func opacityGradient() {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
+        gradient.locations = [0.1, 0.5, 1]
+        self.layer.mask = gradient
+    }
+}
+    
+    
+

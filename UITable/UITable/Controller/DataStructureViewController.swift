@@ -12,6 +12,7 @@ class DataStructureViewController: UITableViewController {
 
     private let storyBoardID = "storyBoardID"
     private let cellIdentifier = "SimpleTextLabel"
+    private let titleVC = "Structures"
     private let modelDataStructure = ArrayData()
     private let colorSeparator = UIColor.black
     
@@ -19,6 +20,7 @@ class DataStructureViewController: UITableViewController {
         super.viewDidLoad()
         modelDataStructure.initModel()
         setSeparator(color: colorSeparator)
+        self.title = titleVC
     }
     
     // MARK: - Table view data source
@@ -48,11 +50,11 @@ class DataStructureViewController: UITableViewController {
     }
     
     
-    func getModelPrototype(_ index: Int) -> DataStructureProtocol{
+    private func getModelPrototype(_ index: Int) -> DataStructureProtocol{
         return modelDataStructure.getDataStructure(at: index)
     }
     
-    func setSeparator(color: UIColor){
+    private func setSeparator(color: UIColor){
         self.tableView.separatorColor = color
     }
 
