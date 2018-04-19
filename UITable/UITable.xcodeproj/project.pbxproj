@@ -18,9 +18,9 @@
 		286129E0207F647E0070600C /* UITableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286129DF207F647E0070600C /* UITableUITests.swift */; };
 		286129EE207F66120070600C /* DataStructureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286129ED207F66120070600C /* DataStructureViewController.swift */; };
 		286129F0207F71330070600C /* DataStructureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286129EF207F71330070600C /* DataStructureViewCell.swift */; };
-		286C9FB72080A680006AA8FF /* ArrayDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C9FB62080A680006AA8FF /* ArrayDataProtocol.swift */; };
+		286C9FB72080A680006AA8FF /* DataEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C9FB62080A680006AA8FF /* DataEntityProtocol.swift */; };
 		286C9FB92080A890006AA8FF /* ArrayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C9FB82080A890006AA8FF /* ArrayData.swift */; };
-		289CE6202085C7CA006D11FB /* DataStructureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289CE61F2085C7CA006D11FB /* DataStructureProtocol.swift */; };
+		289CE6202085C7CA006D11FB /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289CE61F2085C7CA006D11FB /* EntityProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +58,9 @@
 		286129E1207F647E0070600C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286129ED207F66120070600C /* DataStructureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureViewController.swift; sourceTree = "<group>"; };
 		286129EF207F71330070600C /* DataStructureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureViewCell.swift; sourceTree = "<group>"; };
-		286C9FB62080A680006AA8FF /* ArrayDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDataProtocol.swift; sourceTree = "<group>"; };
+		286C9FB62080A680006AA8FF /* DataEntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntityProtocol.swift; sourceTree = "<group>"; };
 		286C9FB82080A890006AA8FF /* ArrayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayData.swift; sourceTree = "<group>"; };
-		289CE61F2085C7CA006D11FB /* DataStructureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureProtocol.swift; sourceTree = "<group>"; };
+		289CE61F2085C7CA006D11FB /* EntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				2809C87F2084922F00138B46 /* ConfigureCellProtocol.swift */,
-				286C9FB62080A680006AA8FF /* ArrayDataProtocol.swift */,
-				289CE61F2085C7CA006D11FB /* DataStructureProtocol.swift */,
+				286C9FB62080A680006AA8FF /* DataEntityProtocol.swift */,
+				289CE61F2085C7CA006D11FB /* EntityProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -309,10 +309,10 @@
 				2809C8802084922F00138B46 /* ConfigureCellProtocol.swift in Sources */,
 				286C9FB92080A890006AA8FF /* ArrayData.swift in Sources */,
 				28318B832080CD0000A3E4C4 /* DataStructureEntity.swift in Sources */,
-				286C9FB72080A680006AA8FF /* ArrayDataProtocol.swift in Sources */,
+				286C9FB72080A680006AA8FF /* DataEntityProtocol.swift in Sources */,
 				2809C88220849A5C00138B46 /* DetailController.swift in Sources */,
 				286129EE207F66120070600C /* DataStructureViewController.swift in Sources */,
-				289CE6202085C7CA006D11FB /* DataStructureProtocol.swift in Sources */,
+				289CE6202085C7CA006D11FB /* EntityProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

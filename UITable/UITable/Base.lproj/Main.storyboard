@@ -117,7 +117,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <state key="normal" title="Button">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="moreButtonTapped:" destination="JIY-5k-lpm" eventType="touchUpInside" id="1Xy-Gb-lwY"/>
@@ -127,9 +127,10 @@
                                 <constraints>
                                     <constraint firstItem="h6R-3G-NDz" firstAttribute="height" secondItem="Yek-q8-NVu" secondAttribute="height" multiplier="1:2" priority="999" id="8gu-oU-1Nm"/>
                                     <constraint firstItem="h6R-3G-NDz" firstAttribute="top" secondItem="Yek-q8-NVu" secondAttribute="top" id="DEN-Hf-Eg5"/>
-                                    <constraint firstAttribute="bottom" secondItem="h6R-3G-NDz" secondAttribute="bottom" constant="50" id="J80-se-bxN"/>
+                                    <constraint firstAttribute="bottom" secondItem="h6R-3G-NDz" secondAttribute="bottom" constant="40" id="J80-se-bxN"/>
+                                    <constraint firstItem="HrL-Qo-Odc" firstAttribute="top" secondItem="h6R-3G-NDz" secondAttribute="bottom" priority="750" id="LVl-je-HfC"/>
                                     <constraint firstAttribute="trailing" secondItem="h6R-3G-NDz" secondAttribute="trailing" id="S5F-tI-F1z"/>
-                                    <constraint firstItem="HrL-Qo-Odc" firstAttribute="top" secondItem="h6R-3G-NDz" secondAttribute="bottom" constant="-30" id="ejo-HA-K5c"/>
+                                    <constraint firstItem="HrL-Qo-Odc" firstAttribute="top" secondItem="h6R-3G-NDz" secondAttribute="bottom" priority="999" constant="-30" id="ejo-HA-K5c"/>
                                     <constraint firstItem="HrL-Qo-Odc" firstAttribute="centerX" secondItem="juV-EJ-qjZ" secondAttribute="centerX" id="nE9-Gs-U0h"/>
                                     <constraint firstItem="h6R-3G-NDz" firstAttribute="leading" secondItem="Yek-q8-NVu" secondAttribute="leading" id="qE4-Ob-K3L"/>
                                 </constraints>
@@ -147,11 +148,9 @@
                         <viewLayoutGuide key="safeArea" id="xMQ-HB-CX1"/>
                     </view>
                     <connections>
-                        <outlet property="constrainLayout" destination="8gu-oU-1Nm" id="5Z8-kj-e7f"/>
-                        <outlet property="labelConstrainBottom" destination="ejo-HA-K5c" id="0tu-Om-xwb"/>
-                        <outlet property="mainView" destination="GuP-vL-FM6" id="UuN-yG-gqb"/>
-                        <outlet property="moreButton" destination="HrL-Qo-Odc" id="D1y-rc-E4Z"/>
-                        <outlet property="scrollView" destination="Yek-q8-NVu" id="DY6-QY-ViY"/>
+                        <outlet property="constrainBottomTopToView" destination="ejo-HA-K5c" id="0tu-Om-xwb"/>
+                        <outlet property="constrainHeightViewToSuperView" destination="8gu-oU-1Nm" id="5Z8-kj-e7f"/>
+                        <outlet property="showTextButton" destination="HrL-Qo-Odc" id="D1y-rc-E4Z"/>
                         <outlet property="textLabel" destination="juV-EJ-qjZ" id="AEj-5f-CYP"/>
                         <outlet property="viewForOpacity" destination="0zJ-Ts-P3V" id="sz5-bD-fwJ"/>
                     </connections>

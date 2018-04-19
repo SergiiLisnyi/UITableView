@@ -10,68 +10,47 @@ import UIKit
 
 class DetailController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var moreButton: UIButton!
-    
+    @IBOutlet weak var showTextButton: UIButton!
     @IBOutlet weak var viewForOpacity: UIView!
-    
-    
-  //  @IBOutlet weak var constrainBottom33: NSLayoutConstraint!
-    
-    @IBOutlet weak var heightForViewO: NSLayoutConstraint!
-    
-    @IBOutlet weak var constrainLayout: NSLayoutConstraint!
-    
-    
-    @IBOutlet weak var labelConstrainBottom: NSLayoutConstraint!
-    
-    
-    @IBOutlet var mainView: UIView!
-    
-    let lowPriority = Float(250)
+    @IBOutlet weak var constrainHeightViewToSuperView: NSLayoutConstraint!
+    @IBOutlet weak var constrainBottomTopToView: NSLayoutConstraint!
+
     let highPriority = Float(999)
-    var textOpen = false
-    var model: DataStructureProtocol?
+    var isTextOpen = false
+    var model: EntityProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textLabel.text = model?.getDescr()
         self.title = model?.getName()
-        
-        moreButton.setTitle("More", for: .normal)
-        //moreButton.setTitle("Less", for: .selected)
-        
-       viewForOpacity.opacityGradient()
-      // constrainBottom33.priority = UILayoutPriority(lowPriority)
+        showTextButton.setTitle("More", for: .normal)
+        viewForOpacity.opacityGradient()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
     @IBAction func moreButtonTapped(_ sender: UIButton) {
 
-        if textOpen == false {
-            moreButton.setTitle("Less", for: .normal)
-            constrainLayout.priority = UILayoutPriority(lowPriority)
-
-        //    labelConstrainBottom.priority = UILayoutPriority(lowPriority)
-            labelConstrainBottom.constant = 10
-            
+        if !isTextOpen {
+            showTextButton.setTitle("Less", for: .normal)
+            constrainHeightViewToSuperView.priority = UILayoutPriority.defaultLow
+            constrainBottomTopToView.priority = UILayoutPriority.defaultLow
             viewForOpacity.isHidden = true
-            textOpen = true
+            isTextOpen = true
         } else {
-            moreButton.setTitle("More", for: .normal)
-            constrainLayout.priority = UILayoutPriority(highPriority)
-            viewForOpacity.isHidden = false
-            textOpen = false
+            showTextButton.setTitle("More", for: .normal)
             
+            //constrainHeightViewToSuperView.priority = UILayoutPriority.defaultHigh
+            constrainHeightViewToSuperView.priority = UILayoutPriority(highPriority)
+            constrainBottomTopToView.priority = UILayoutPriority(highPriority)
+            viewForOpacity.isHidden = false
+            isTextOpen = false
         }
     }
 }
-
 
 extension UIView {
     func opacityGradient() {

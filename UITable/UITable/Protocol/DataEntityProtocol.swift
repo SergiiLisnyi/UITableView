@@ -6,8 +6,7 @@
 //  Copyright © 2018 Sergii Lisnyi. All rights reserved.
 //
 
-protocol ArrayDataProtocol {
+protocol DataEntityProtocol {
     var count: Int { get }
-    func initModel()
-    func getDataStructure(at: Int) -> DataStructureProtocol
+    func getDataStructure(at: Int) -> EntityProtocol
 }

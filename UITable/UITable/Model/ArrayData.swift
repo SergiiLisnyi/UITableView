@@ -5,8 +5,7 @@
 //  Created by Sergii Lisnyi on 4/13/18.
 //  Copyright © 2018 Sergii Lisnyi. All rights reserved.
 //
-class ArrayData : ArrayDataProtocol {
-    
+class ArrayData : DataEntityProtocol {
     
     private let dataStack = DataStructureEntity(name: "Stack", descr: """
         For the use of the term LIFO in accounting, see LIFO (accounting). For the use of the term pushdown in strength training, see Pushdown (exercise). For other uses, see Stack (disambiguation).
@@ -79,7 +78,7 @@ class ArrayData : ArrayDataProtocol {
     
     private var arrayDataStructure : [DataStructureEntity] = []
     
-    func initModel() {
+    init() {
         arrayDataStructure.append(dataStack)
         arrayDataStructure.append(dataQueue)
         arrayDataStructure.append(dataSet)
@@ -94,9 +93,7 @@ class ArrayData : ArrayDataProtocol {
         return arrayDataStructure.count
     }
     
-    func getDataStructure(at: Int) -> DataStructureProtocol {
+    func getDataStructure(at: Int) -> EntityProtocol {
         return arrayDataStructure[at]
     }
-    
-    
 }
