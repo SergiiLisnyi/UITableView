@@ -11,4 +11,5 @@ import Foundation
 protocol EntityProtocol {
     func getName() -> String
     func getDescr() -> String
+    func getURL() -> String
 }

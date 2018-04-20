@@ -12,9 +12,11 @@ struct  DataStructureEntity: EntityProtocol  {
     
     private var name: String
     private var descr: String
+    private var wikiURL: String
     
-    init(name: String, descr: String) {
+    init(name: String, wikiURL: String, descr: String) {
         self.name = name
+        self.wikiURL = wikiURL
         self.descr = descr
     }
     
@@ -24,5 +26,9 @@ struct  DataStructureEntity: EntityProtocol  {
     
     func getDescr() -> String {
         return self.descr
+    }
+    
+    func getURL() -> String {
+        return self.wikiURL
     }
 }
