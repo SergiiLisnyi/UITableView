@@ -9,13 +9,7 @@
 import UIKit
 
 class DetailController: UIViewController {
-    
-    var animator = UIDynamicAnimator()
-    
-   // private let storyBoardID = "uiWebID"
-    
-    
-    
+
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var showTextButton: UIButton!
     @IBOutlet weak var viewForOpacity: UIView!
@@ -32,8 +26,6 @@ class DetailController: UIViewController {
         super.viewDidLoad()
         textLabel.text = model?.getDescr()
         self.title = model?.getName()
-        showTextButton.setTitle("More", for: .normal)
-        openWikiButton.setTitle("OpenWiki", for: .normal)
         viewForOpacity.opacityGradient()
     }
 
@@ -46,20 +38,7 @@ class DetailController: UIViewController {
     }
     
     @IBAction func showTextButtonTapped(_ sender: UIButton) {
-
         if !isTextOpen {
-            
-//            // button down
-//            animator = UIDynamicAnimator(referenceView: scrollView)
-//            let gravity = UIGravityBehavior(items: [showTextButton])
-//            animator.addBehavior(gravity)
-//
-//            // stop on view
-//            let collision = UICollisionBehavior(items: [showTextButton])
-//            collision.translatesReferenceBoundsIntoBoundary = true
-//            animator.addBehavior(collision)
-            
-            
             UIView.transition(with: scrollView,
                               duration: 0.3,
                               options: .transitionCrossDissolve,
@@ -71,89 +50,41 @@ class DetailController: UIViewController {
                                 self.isTextOpen = true
                                 
             })
-  
-//            showTextButton.setTitle("Less", for: .normal)
-//            constrainHeightViewToSuperView.priority = UILayoutPriority.defaultLow
-//            constrainBottomTopToView.priority = UILayoutPriority.defaultLow
-//            viewForOpacity.isHidden = true
-//            isTextOpen = true
         } else {
-            showTextButton.setTitle("More", for: .normal)
-            
-            //constrainHeightViewToSuperView.priority = UILayoutPriority.defaultHigh
-            constrainHeightViewToSuperView.priority = UILayoutPriority(highPriority)
-            constrainBottomTopToView.priority = UILayoutPriority(highPriority)
-            viewForOpacity.isHidden = false
-            isTextOpen = false
+            UIView.transition(with: scrollView,
+                              duration: 0.3,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                self.showTextButton.setTitle("More", for: .normal)
+                                self.constrainHeightViewToSuperView.priority = UILayoutPriority(self.highPriority)
+                                self.constrainBottomTopToView.priority = UILayoutPriority(self.highPriority)
+                                self.viewForOpacity.isHidden = false
+                                self.isTextOpen = false
+            })
         }
     }
     
-    
-//    func presentView (storyBoardID: String, vcClass: String){
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        var uiWebViewStoryBoard: UIViewController
-//        switch vcClass {
-//        case "UIWebViewVC":
-//            guard let uiWebView = storyboard.instantiateViewController(withIdentifier: storyBoardID) as? UIWebViewVC else { return }
-//        default:
-//            return
-//        }
-//
-//        uiWebViewStoryBoard.urlWikiString = self.model?.getURL()
-//        self.navigationController?.present(uiWebViewStoryBoard, animated: true)
-//    }
-    
-    
-    
-    
     @IBAction func openWikiButtonTapped(_ sender: UIButton) {
-        
-        let alert = UIAlertController(title: "Action Sheet", message: "Choose browser", preferredStyle: .actionSheet)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let uiWebView = UIAlertAction(title: "UIWebView", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            
-            guard let uiWebViewStoryBoard = storyboard.instantiateViewController(withIdentifier: "uiWebID") as? UIWebVC else { return }
-            uiWebViewStoryBoard.urlWikiString = self.model?.getURL()
-            self.navigationController?.present(uiWebViewStoryBoard, animated: true)
-            
-        })
-        
-        let wkWebView = UIAlertAction(title: "WKWebView", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            
-            guard let uiWebViewStoryBoard = storyboard.instantiateViewController(withIdentifier: "wkWebID") as? WKWebVC else { return }
-            uiWebViewStoryBoard.urlWikiString = self.model?.getURL()
-            self.navigationController?.present(uiWebViewStoryBoard, animated: true)
-
-        })
-        
-        let sfSafariView = UIAlertAction(title: "SFSafariView", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            
-            guard let uiWebViewStoryBoard = storyboard.instantiateViewController(withIdentifier: "sfWebID") as? SFSafariVC else { return }
-            uiWebViewStoryBoard.urlWikiString = self.model?.getURL()
-            self.navigationController?.present(uiWebViewStoryBoard, animated: true)
-
-        })
-        
-        let canselAction = UIAlertAction(title: "Cansel", style: .cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-        })
-        
-        
-        alert.addAction(uiWebView)
-        alert.addAction(wkWebView)
-        alert.addAction(sfSafariView)
-        alert.addAction(canselAction)
-        
-        
-//        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-//            NSLog("The \"OK\" alert occured.")
-//        }))
-     
+        let alert = UIAlertController(title: "Choose browser", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(getAction(title: "UIWebView", idController: "uiWebID"))
+        alert.addAction(getAction(title: "WKWebView", idController: "wkWebID"))
+        alert.addAction(getAction(title: "SFSafariView", idController: "sfWebID"))
+        alert.addAction(getAction(title: "Cancel"))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getAction(title: String, idController: String? = nil) -> UIAlertAction {
+        guard let idController = idController else {
+            return UIAlertAction(title: title, style: .cancel)
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let uiAction = UIAlertAction(title: title, style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            guard var viewController = storyboard.instantiateViewController(withIdentifier: idController) as? WebProtocol else { return }
+            viewController.getLink = self.model?.getURL()
+            self.present(viewController as! UIViewController, animated: true)
+        })
+        return uiAction
     }
 }
 

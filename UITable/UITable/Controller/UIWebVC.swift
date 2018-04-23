@@ -8,16 +8,24 @@
 
 import UIKit
 
-class UIWebVC: UIViewController {
-
+class UIWebVC: UIViewController, WebProtocol {
+   
+    var getLink: String?
     @IBOutlet weak var webView: UIWebView!
-    
-    var urlWikiString: String?
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let urlWiki = URL(string: urlWikiString ?? "") else { return }
+        guard let urlWiki = URL(string: getLink ?? "") else { return }
         let request = URLRequest(url: urlWiki)
-            webView.loadRequest(request)
+        webView.loadRequest(request)
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        if(webView.canGoBack) {
+            webView.goBack()
+        } else {
+            dismiss(animated: true)
+        }
     }
 }
