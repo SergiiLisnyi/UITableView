@@ -8,36 +8,49 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class DataStructureViewController: UITableViewController {
 
-    var arrayDataStructure : [String] = ["Stack", "Queue","Set","Dequeue","Priority Queue", "List(Array)", "MultiSet", "Dictionary"]
+    private let storyBoardID = "storyBoardID"
+    private let cellIdentifier = "SimpleTextLabel"
+    private let titleVC = "Structures"
+    private let modelDataStructure = ArrayData()
+    private let colorSeparator = UIColor.black
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSeparator(color: colorSeparator)
+        self.title = titleVC
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayDataStructure.count
+        return modelDataStructure.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        let curentTextInCell = arrayDataStructure[indexPath.row]
-        cell.initCell(name: curentTextInCell)
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DataStructureViewCell else {
+            return UITableViewCell()
+        }
+        cell.configure(model: modelDataStructure.getDataStructure(at: indexPath.row))
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let detailStoryBoard = storyboard.instantiateViewController(withIdentifier: storyBoardID) as? DetailController else { return }
+        detailStoryBoard.model = modelDataStructure.getDataStructure(at: indexPath.row)
+        self.navigationController?.pushViewController(detailStoryBoard, animated: true)
+
+//        print("Select cell with index: \(indexPath.row)")
+//        tableView.deselectRow(at: indexPath, animated: true)
+    }
+ 
+    private func setSeparator(color: UIColor){
+        self.tableView.separatorColor = color
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -74,14 +87,13 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+        guard let index = tableView.indexPathForSelectedRow?.row else { return }
+        guard let destination = segue.destination as? DetailStructureViewController else { return }
+        destination.nameStructure = modelDataStructure.getDataStructureName(at: index)
+    }*/
 }
