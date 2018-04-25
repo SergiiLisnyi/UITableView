@@ -16,7 +16,7 @@ class UIWebVC: UIViewController, WebProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let urlWiki = URL(string: getLink ?? "") else { return }
+        guard let link = getLink, let urlWiki = URL(string: link) else { return }
         let request = URLRequest(url: urlWiki)
         webView.loadRequest(request)
     }

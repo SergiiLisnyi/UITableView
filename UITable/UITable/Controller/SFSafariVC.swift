@@ -13,17 +13,22 @@ class SFSafariVC: UIViewController, SFSafariViewControllerDelegate, WebProtocol 
     
     var getLink: String?
     var vc: SFSafariViewController!
+    var isDone = false
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        guard let urlWiki = URL(string: getLink ?? "") else { return }
+        guard let link = getLink, let urlWiki = URL(string: link) else { return }
         vc = SFSafariViewController(url: urlWiki, entersReaderIfAvailable: true)
         vc.delegate = self
-        present(vc, animated: true)
+        
+        if isDone {
+            dismiss(animated: true)
+        } else {
+            self.present(vc, animated: true)
+        }
     }
     
-    
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        dismiss(animated: true)
+        isDone = true
     }    
 }

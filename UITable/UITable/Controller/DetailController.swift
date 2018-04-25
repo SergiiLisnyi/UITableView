@@ -25,16 +25,8 @@ class DetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textLabel.text = model?.getDescr()
-        self.title = model?.getName()
+        title = model?.getName()
         viewForOpacity.opacityGradient()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     @IBAction func showTextButtonTapped(_ sender: UIButton) {
@@ -43,7 +35,7 @@ class DetailController: UIViewController {
                               duration: 0.3,
                               options: .transitionCrossDissolve,
                               animations: {
-                                self.showTextButton.setTitle("Less", for: .normal)
+                                self.showTextButton.setTitle("Less")
                                 self.constrainHeightViewToSuperView.priority = UILayoutPriority.defaultLow
                                 self.constrainBottomTopToView.priority = UILayoutPriority.defaultLow
                                 self.viewForOpacity.isHidden = true
@@ -55,7 +47,7 @@ class DetailController: UIViewController {
                               duration: 0.3,
                               options: .transitionCrossDissolve,
                               animations: {
-                                self.showTextButton.setTitle("More", for: .normal)
+                                self.showTextButton.setTitle("More")
                                 self.constrainHeightViewToSuperView.priority = UILayoutPriority(self.highPriority)
                                 self.constrainBottomTopToView.priority = UILayoutPriority(self.highPriority)
                                 self.viewForOpacity.isHidden = false
@@ -97,6 +89,13 @@ extension UIView {
         self.layer.mask = gradient
     }
 }
-    
-    
+
+extension UIButton {
+    func setTitle(_ title: String) {
+        setTitle(title, for: .normal)
+        setTitle(title, for: .focused)
+        setTitle(title, for: .highlighted)
+        setTitle(title, for: .selected)
+    }
+}
 
