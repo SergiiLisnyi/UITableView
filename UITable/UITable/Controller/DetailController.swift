@@ -17,6 +17,7 @@ class DetailController: UIViewController {
     @IBOutlet weak var constrainBottomTopToView: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var openWikiButton: UIButton!
+    @IBOutlet weak var visualButton: UIButton!
     
     let highPriority = Float(999)
     var isTextOpen = false
@@ -78,6 +79,16 @@ class DetailController: UIViewController {
         })
         return uiAction
     }
+    
+    
+    @IBAction func visualButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let visualizationStoryBoard = storyboard.instantiateViewController(withIdentifier: "visualStoryBoardID") as? VisualizationController else { return }
+        visualizationStoryBoard.model = model
+        self.navigationController?.pushViewController(visualizationStoryBoard, animated: true)
+    }
+    
+    
 }
 
 extension UIView {
