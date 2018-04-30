@@ -9,7 +9,7 @@
 import Foundation
 
 protocol EntityProtocol {
-    func getName() -> String
-    func getDescr() -> String
-    func getURL() -> String
+    var name: String { get }
+    var descr: String { get }
+    var url: String { get }
 }

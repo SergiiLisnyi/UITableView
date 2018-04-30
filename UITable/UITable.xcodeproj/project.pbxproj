@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		2809C8802084922F00138B46 /* ConfigureCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2809C87F2084922F00138B46 /* ConfigureCellProtocol.swift */; };
 		2809C88220849A5C00138B46 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2809C88120849A5C00138B46 /* DetailController.swift */; };
+		280ED2E32096E0C900FB5BC3 /* SetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280ED2E22096E0C900FB5BC3 /* SetManager.swift */; };
+		280ED2E52096E72500FB5BC3 /* ActionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280ED2E42096E72500FB5BC3 /* ActionTextField.swift */; };
+		280ED2E92097350C00FB5BC3 /* MultiSetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280ED2E82097350C00FB5BC3 /* MultiSetManager.swift */; };
+		280ED2EB2097595F00FB5BC3 /* DequeueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280ED2EA2097595F00FB5BC3 /* DequeueManager.swift */; };
 		282394DE2091A9D300F752E7 /* ATDControlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282394DD2091A9D300F752E7 /* ATDControlProtocol.swift */; };
-		282394E02091AA7100F752E7 /* StackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282394DF2091AA7100F752E7 /* StackManager.swift */; };
 		282BF705208DCCA4006ECD82 /* WebProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282BF704208DCCA4006ECD82 /* WebProtocol.swift */; };
 		28318B832080CD0000A3E4C4 /* DataStructureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28318B822080CD0000A3E4C4 /* DataStructureEntity.swift */; };
 		286129C0207F647D0070600C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286129BF207F647D0070600C /* AppDelegate.swift */; };
@@ -30,6 +33,14 @@
 		28B04E592090B5D900F95D2E /* VisualizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B04E582090B5D900F95D2E /* VisualizationController.swift */; };
 		28B04E5D2090BC1500F95D2E /* FakeDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B04E5C2090BC1500F95D2E /* FakeDataController.swift */; };
 		28B04E5F2090C0E000F95D2E /* DataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B04E5E2090C0E000F95D2E /* DataTableCell.swift */; };
+		28BE36B42093277000A2986F /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE36B32093277000A2986F /* Adapter.swift */; };
+		28BE36B62093319C00A2986F /* AdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE36B52093319C00A2986F /* AdapterProtocol.swift */; };
+		28BE36B82093434D00A2986F /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE36B72093434D00A2986F /* ActionButton.swift */; };
+		28BE36BA2093535F00A2986F /* FakeDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE36B92093535F00A2986F /* FakeDataProtocol.swift */; };
+		28BE36BD209365FF00A2986F /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE36BC209365FF00A2986F /* QueueManager.swift */; };
+		28D93FF12091D38C00D5900F /* StackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D93FF02091D38C00D5900F /* StackManager.swift */; };
+		28D93FF32091D43A00D5900F /* ModelFakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D93FF22091D43A00D5900F /* ModelFakeData.swift */; };
+		28D93FF52091D4CE00D5900F /* ControlManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D93FF42091D4CE00D5900F /* ControlManagerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +63,11 @@
 /* Begin PBXFileReference section */
 		2809C87F2084922F00138B46 /* ConfigureCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCellProtocol.swift; sourceTree = "<group>"; };
 		2809C88120849A5C00138B46 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		280ED2E22096E0C900FB5BC3 /* SetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetManager.swift; sourceTree = "<group>"; };
+		280ED2E42096E72500FB5BC3 /* ActionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTextField.swift; sourceTree = "<group>"; };
+		280ED2E82097350C00FB5BC3 /* MultiSetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSetManager.swift; sourceTree = "<group>"; };
+		280ED2EA2097595F00FB5BC3 /* DequeueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequeueManager.swift; sourceTree = "<group>"; };
 		282394DD2091A9D300F752E7 /* ATDControlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATDControlProtocol.swift; sourceTree = "<group>"; };
-		282394DF2091AA7100F752E7 /* StackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackManager.swift; sourceTree = "<group>"; };
 		282BF704208DCCA4006ECD82 /* WebProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebProtocol.swift; sourceTree = "<group>"; };
 		28318B822080CD0000A3E4C4 /* DataStructureEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureEntity.swift; sourceTree = "<group>"; };
 		286129BC207F647D0070600C /* UITable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +93,14 @@
 		28B04E582090B5D900F95D2E /* VisualizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationController.swift; sourceTree = "<group>"; };
 		28B04E5C2090BC1500F95D2E /* FakeDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataController.swift; sourceTree = "<group>"; };
 		28B04E5E2090C0E000F95D2E /* DataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableCell.swift; sourceTree = "<group>"; };
+		28BE36B32093277000A2986F /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
+		28BE36B52093319C00A2986F /* AdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterProtocol.swift; sourceTree = "<group>"; };
+		28BE36B72093434D00A2986F /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		28BE36B92093535F00A2986F /* FakeDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataProtocol.swift; sourceTree = "<group>"; };
+		28BE36BC209365FF00A2986F /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		28D93FF02091D38C00D5900F /* StackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackManager.swift; sourceTree = "<group>"; };
+		28D93FF22091D43A00D5900F /* ModelFakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFakeData.swift; sourceTree = "<group>"; };
+		28D93FF42091D4CE00D5900F /* ControlManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlManagerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +149,7 @@
 				286C9FB62080A680006AA8FF /* DataEntityProtocol.swift */,
 				289CE61F2085C7CA006D11FB /* EntityProtocol.swift */,
 				282BF704208DCCA4006ECD82 /* WebProtocol.swift */,
+				28BE36B92093535F00A2986F /* FakeDataProtocol.swift */,
 				282394DD2091A9D300F752E7 /* ATDControlProtocol.swift */,
 			);
 			path = Protocol;
@@ -158,8 +181,13 @@
 				2809C8842084D83F00138B46 /* Protocol */,
 				2809C8832084D7EE00138B46 /* Controller */,
 				286C9FB32080A1C5006AA8FF /* Model */,
-				282394DF2091AA7100F752E7 /* StackManager.swift */,
+				28BE36BB2093658300A2986F /* Manager */,
+				28BE36B72093434D00A2986F /* ActionButton.swift */,
+				280ED2E42096E72500FB5BC3 /* ActionTextField.swift */,
 				286129BF207F647D0070600C /* AppDelegate.swift */,
+				28BE36B32093277000A2986F /* Adapter.swift */,
+				28BE36B52093319C00A2986F /* AdapterProtocol.swift */,
+				28D93FF42091D4CE00D5900F /* ControlManagerFactory.swift */,
 				28B04E5E2090C0E000F95D2E /* DataTableCell.swift */,
 				286129EF207F71330070600C /* DataStructureViewCell.swift */,
 				286129C3207F647D0070600C /* Main.storyboard */,
@@ -193,8 +221,21 @@
 			children = (
 				286C9FB82080A890006AA8FF /* ArrayData.swift */,
 				28318B822080CD0000A3E4C4 /* DataStructureEntity.swift */,
+				28D93FF22091D43A00D5900F /* ModelFakeData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		28BE36BB2093658300A2986F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				28D93FF02091D38C00D5900F /* StackManager.swift */,
+				28BE36BC209365FF00A2986F /* QueueManager.swift */,
+				280ED2E22096E0C900FB5BC3 /* SetManager.swift */,
+				280ED2E82097350C00FB5BC3 /* MultiSetManager.swift */,
+				280ED2EA2097595F00FB5BC3 /* DequeueManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,22 +374,33 @@
 			files = (
 				28B04E5F2090C0E000F95D2E /* DataTableCell.swift in Sources */,
 				28B04E5D2090BC1500F95D2E /* FakeDataController.swift in Sources */,
+				280ED2E32096E0C900FB5BC3 /* SetManager.swift in Sources */,
 				286129F0207F71330070600C /* DataStructureViewCell.swift in Sources */,
 				286129C0207F647D0070600C /* AppDelegate.swift in Sources */,
+				28BE36B82093434D00A2986F /* ActionButton.swift in Sources */,
+				280ED2E52096E72500FB5BC3 /* ActionTextField.swift in Sources */,
+				28BE36BD209365FF00A2986F /* QueueManager.swift in Sources */,
 				289A67422089C7C00043EC4B /* UIWebVC.swift in Sources */,
 				2809C8802084922F00138B46 /* ConfigureCellProtocol.swift in Sources */,
 				28B04E592090B5D900F95D2E /* VisualizationController.swift in Sources */,
 				282394DE2091A9D300F752E7 /* ATDControlProtocol.swift in Sources */,
-				282394E02091AA7100F752E7 /* StackManager.swift in Sources */,
+				28D93FF12091D38C00D5900F /* StackManager.swift in Sources */,
 				286C9FB92080A890006AA8FF /* ArrayData.swift in Sources */,
 				282BF705208DCCA4006ECD82 /* WebProtocol.swift in Sources */,
+				280ED2EB2097595F00FB5BC3 /* DequeueManager.swift in Sources */,
 				28318B832080CD0000A3E4C4 /* DataStructureEntity.swift in Sources */,
 				286C9FB72080A680006AA8FF /* DataEntityProtocol.swift in Sources */,
+				28BE36B62093319C00A2986F /* AdapterProtocol.swift in Sources */,
+				280ED2E92097350C00FB5BC3 /* MultiSetManager.swift in Sources */,
+				28BE36B42093277000A2986F /* Adapter.swift in Sources */,
 				289A67462089C8330043EC4B /* SFSafariVC.swift in Sources */,
+				28D93FF52091D4CE00D5900F /* ControlManagerFactory.swift in Sources */,
 				2809C88220849A5C00138B46 /* DetailController.swift in Sources */,
 				289A67442089C7FF0043EC4B /* WKWebVC.swift in Sources */,
+				28BE36BA2093535F00A2986F /* FakeDataProtocol.swift in Sources */,
 				286129EE207F66120070600C /* DataStructureViewController.swift in Sources */,
 				289CE6202085C7CA006D11FB /* EntityProtocol.swift in Sources */,
+				28D93FF32091D43A00D5900F /* ModelFakeData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,63 +8,40 @@
 
 import UIKit
 
-class FakeDataController: UIViewController {
+class FakeDataController: UIViewController, FakeDataProtocol {
 
     @IBOutlet weak var dataTable: UITableView!
-    var arrayValues = [(value: Int, state: Bool)]()
-    //var arrayValues = [(value: 0, state: false), (value: 1, state: false),(value: 2, state: false)]
     
+    var modelData = ModelFakeData()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
- 
-    func addToStack() {
-        let value = arrayValues.count
-        arrayValues.insert((value: value, state: false), at: 0)
-        dataTable.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        dataTable.separatorColor = UIColor.black
     }
     
-    func addToArray() {
-        let value = arrayValues.count
-        arrayValues.append((value, false))
-        dataTable.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        dataTable.reloadData()
-    }
-    
-    func addToIndex(index: Int) {
-        guard index < arrayValues.count  else { print ("Index out of range"); return }
-        arrayValues.insert((value: index, state: false), at: index)
+    func add(value: String, index: Int) {
+        guard index <= modelData.count  else { print ("Index out of range"); return }
+        guard value.count != 0 else { print ("Empty value"); return }
+        
+        modelData.insert(value: value, helperValue: "", state: false, at: index)
         dataTable.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
-    func addToEnd() {
-        let lastIndex = arrayValues.count
-        arrayValues.insert((value: lastIndex, state: false), at: lastIndex)
-        dataTable.insertRows(at: [IndexPath(row: lastIndex, section: 0)], with: .automatic)
-    }
-    
-    func deleteToBegin() {
-        arrayValues.remove(at: 0)
-        dataTable.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-    }
-    
-    func deleteToEnd() {
-        guard 0 < arrayValues.count  else { print ("Index out of range"); return }
-        let lastIndex = arrayValues.count - 1
-        arrayValues.remove(at: lastIndex)
-        dataTable.deleteRows(at: [IndexPath(row: lastIndex, section: 0)], with: .automatic)
-    }
-    
     func deleteToIndex(index: Int) {
-        guard index < arrayValues.count  else { print ("Index out of range"); return }
-        arrayValues.remove(at: index)
+        guard index < modelData.count  else { print ("Index out of range"); return }
+        modelData.remove(at: index)
         dataTable.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
-    func commit(){
-        for i in 0..<arrayValues.count{
-            arrayValues[i].state = true
+    func commit() {
+        for i in 0..<modelData.count{
+            modelData.setState(at: i, state: true)
         }
+        dataTable.reloadData()
+    }
+    
+    func light(index: Int) {
+        modelData.setState(at: index, state: false)
         dataTable.reloadData()
     }
 }
@@ -76,18 +53,13 @@ extension FakeDataController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DataTableCell.identifier, for: indexPath) as? DataTableCell else  {
             return UITableViewCell()
         }
-        cell.label?.text = String(arrayValues[indexPath.row].value)
-        if arrayValues[indexPath.row].state == true {
-            cell.label.backgroundColor = UIColor.clear
-        }
-        else {
-            cell.label.backgroundColor = UIColor.red
-        }
+        cell.label?.text = modelData.getValue(at: indexPath.row) + modelData.getHelperValue(at: indexPath.row)
+        modelData.getState(at: indexPath.row) ? (cell.label.backgroundColor = UIColor.clear) : (cell.label.backgroundColor = UIColor.red)
         return cell
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayValues.count
+        return modelData.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

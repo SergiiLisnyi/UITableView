@@ -11,11 +11,7 @@ import UIKit
 class DataStructureViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
-    
-//    func initCell (name: String){
-//        label.text = name
-//    }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -25,11 +21,9 @@ class DataStructureViewCell: UITableViewCell {
     }
 }
 
-
 extension DataStructureViewCell: ConfigureCellProtocol {
     
     func configure(model: EntityProtocol) {
-        //label.text = model.currentDataStruct?.name
-        label.text = model.getName()
+        label.text = model.name
     }
 }

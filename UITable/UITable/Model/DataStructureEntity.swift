@@ -10,25 +10,13 @@ import Foundation
 
 struct  DataStructureEntity: EntityProtocol  {
     
-    private var name: String
-    private var descr: String
-    private var wikiURL: String
+    internal var name: String
+    internal var descr: String
+    internal var url: String
     
-    init(name: String, wikiURL: String, descr: String) {
+    init(name: String, url: String, descr: String) {
         self.name = name
-        self.wikiURL = wikiURL
+        self.url = url
         self.descr = descr
-    }
-    
-    func getName() -> String {
-        return self.name
-    }
-    
-    func getDescr() -> String {
-        return self.descr
-    }
-    
-    func getURL() -> String {
-        return self.wikiURL
     }
 }

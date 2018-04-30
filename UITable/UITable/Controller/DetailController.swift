@@ -21,13 +21,13 @@ class DetailController: UIViewController {
     
     let highPriority = Float(999)
     var isTextOpen = false
-    var model: EntityProtocol?
+    var model: EntityProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textLabel.text = model?.getDescr()
-        title = model?.getName()
-        viewForOpacity.opacityGradient()
+        textLabel.text = model.descr
+        title = model.name
+        viewForOpacity.addCreateOpacityGradient()
     }
     
     @IBAction func showTextButtonTapped(_ sender: UIButton) {
@@ -59,40 +59,39 @@ class DetailController: UIViewController {
     
     @IBAction func openWikiButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Choose browser", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(getAction(title: "UIWebView", idController: "uiWebID"))
-        alert.addAction(getAction(title: "WKWebView", idController: "wkWebID"))
-        alert.addAction(getAction(title: "SFSafariView", idController: "sfWebID"))
+        alert.addAction(getAction(title: "UIWebView", controllerID: "uiWebID"))
+        alert.addAction(getAction(title: "WKWebView", controllerID: "wkWebID"))
+        alert.addAction(getAction(title: "SFSafariView", controllerID: "sfWebID"))
         alert.addAction(getAction(title: "Cancel"))
         self.present(alert, animated: true, completion: nil)
     }
     
-    func getAction(title: String, idController: String? = nil) -> UIAlertAction {
-        guard let idController = idController else {
+    func getAction(title: String, controllerID: String? = nil) -> UIAlertAction {
+        guard let idController = controllerID else {
             return UIAlertAction(title: title, style: .cancel)
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let uiAction = UIAlertAction(title: title, style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             guard var viewController = storyboard.instantiateViewController(withIdentifier: idController) as? WebProtocol else { return }
-            viewController.getLink = self.model?.getURL()
+            viewController.getLink = self.model.url
             self.present(viewController as! UIViewController, animated: true)
         })
         return uiAction
     }
     
-    
     @IBAction func visualButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let visualizationStoryBoard = storyboard.instantiateViewController(withIdentifier: "visualStoryBoardID") as? VisualizationController else { return }
-        visualizationStoryBoard.model = model
+        
+        visualizationStoryBoard.control = ControlManagerFactory.getManager(model: model)
+        
         self.navigationController?.pushViewController(visualizationStoryBoard, animated: true)
     }
-    
-    
 }
 
 extension UIView {
-    func opacityGradient() {
+    func addCreateOpacityGradient() {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
@@ -104,9 +103,26 @@ extension UIView {
 extension UIButton {
     func setTitle(_ title: String) {
         setTitle(title, for: .normal)
-        setTitle(title, for: .focused)
-        setTitle(title, for: .highlighted)
-        setTitle(title, for: .selected)
+    }
+}
+//MARK: FIXME
+enum ActionType {
+    case UIWebView
+    case WKWebView
+    case SFSafariView
+    case Cancel
+    
+    var titleAndControllerID: (title: String, controllerID: String) {
+        switch self {
+        case .UIWebView:
+            return ("UIWebView", "uiWebID")
+        case .WKWebView:
+            return ("WKWebView", "wkWebID")
+        case .SFSafariView:
+            return ("SFSafariView", "sfWebID")
+        case .Cancel:
+            return ("Cancel", "")
+        }
     }
 }
 

@@ -10,36 +10,15 @@ import UIKit
 
 class VisualizationController: UIViewController {
 
+    @IBOutlet weak var stackForButtons: UIStackView!
     weak var tableController: FakeDataController?
-    var model: EntityProtocol?
-    
+    var adapter = Adapter()
+    var control: ATDControlProtocol!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = model?.getName()
-        createButton(title: "Add", action: #selector(buttonActionAdd), x: 30, y: 80 )
-        createButton(title: "Del", action: #selector(buttonActionDel), x: 170, y: 80 )
-        createButton(title: "Commit", action: #selector(buttonActionCommit), x: 310, y: 80 )
-    }
-    
-    func createButton(title: String, action: Selector, x: Int, y: Int) {
-        let button = UIButton()
-        button.frame = CGRect(x: x, y: y, width: 70, height: 40)
-        button.backgroundColor = UIColor.gray
-        button.setTitle(title, for: .normal)
-        button.addTarget(self, action: action, for: .touchUpInside)
-        self.view.addSubview(button)
-    }
-    
-    @objc func buttonActionAdd(sender: UIButton!) {
-        tableController?.addToStack()
-    }
-    
-    @objc func buttonActionDel(sender: UIButton!) {
-        tableController?.deleteToBegin()
-    }
-    
-    @objc func buttonActionCommit(sender: UIButton!) {
-        tableController?.commit()
+        control.setDelegate(delegate: tableController!) //FIXME FORCE
+        adapter.place(control: control, view: stackForButtons)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
