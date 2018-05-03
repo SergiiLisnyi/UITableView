@@ -13,13 +13,14 @@ class ActionTextField: UITextField, UITextFieldDelegate {
     
     var action: ((String)->())?
     
-    init(title: String, action: @escaping (String)->()) {
+    init(placeholder: String, keyboardType: UIKeyboardType, action: @escaping (String)->()) {
         super.init(frame: .zero)
         self.action = action
         self.borderStyle = UITextBorderStyle.roundedRect
         self.backgroundColor = UIColor.yellow
-        self.keyboardType = UIKeyboardType.decimalPad
-        self.delegate = self;
+        self.keyboardType = keyboardType
+        self.placeholder = placeholder
+        self.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,12 +31,7 @@ class ActionTextField: UITextField, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text as NSString? {
             let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
-
-            //limit count
-            if txtAfterUpdate.count > 3 {
-                return false
-            }
-            action!(txtAfterUpdate)
+            action?(txtAfterUpdate)
         }
         return true
     }

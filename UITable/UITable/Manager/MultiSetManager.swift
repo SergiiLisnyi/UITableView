@@ -13,10 +13,6 @@ class MultiSetManager: ATDControlProtocol {
     var delegate: FakeDataProtocol?
     var value = ""
     
-    func setDelegate(delegate: FakeDataProtocol) {
-        self.delegate = delegate
-    }
-    
     func change(_ value: String) {
         self.value = value
     }
@@ -43,11 +39,14 @@ class MultiSetManager: ATDControlProtocol {
                 let index = data.modelData.getIndex(value: self.value)
                 let helper = data.modelData.getHelperValue(at: index)
                 data.modelData.setHelperValue(at: index, helperValue: self.plusNumberOfRepetitions(helper))
-                data.commit()
+               // data.commit()
                 return
             }
             data.add(value: self.value, index: 0)
+           // data.commit()
         })
+        
+        arrayTypeData.append(TypeDate.textField(placeholder: "value", keyboardType: .numberPad, action: change))
         
         arrayTypeData.append(TypeDate.button(title: "delete") {
             guard let data = self.delegate else { return }
@@ -59,7 +58,7 @@ class MultiSetManager: ATDControlProtocol {
                     data.deleteToIndex(index: index)
                 } else {
                     data.modelData.setHelperValue(at: index, helperValue: self.minusNumberOfRepetitions(helper))
-                    data.commit()
+                    //data.commit()
                     return
                 }
             }
@@ -67,13 +66,7 @@ class MultiSetManager: ATDControlProtocol {
             return
             
         })
-        
-        arrayTypeData.append(TypeDate.textField(title: "enterValue", action: change))
-        
-        arrayTypeData.append(TypeDate.button(title: "commit") {
-            guard let data = self.delegate else { return }
-            data.commit()
-        })
+     
         return arrayTypeData
     }
 }

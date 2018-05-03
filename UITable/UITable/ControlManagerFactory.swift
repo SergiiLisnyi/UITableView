@@ -11,20 +11,23 @@ import Foundation
 class ControlManagerFactory  {
     
     static func getManager(model: EntityProtocol) -> ATDControlProtocol {
-        let title = model.name
-        switch title {
-        case "Stack":
+        switch model.type {
+        case DataType.Stack:
             return StackManager()
-        case "Queue":
+        case DataType.Queue:
             return QueueManager()
-        case "Set":
+        case DataType.Set:
             return SetManager()
-        case "MultiSet":
+        case DataType.MultiSet:
             return MultiSetManager()
-        case "Dequeue":
+        case DataType.Dequeu:
             return DequeueManager()
-        default:
-            return StackManager()
+        case DataType.List:
+            return ListManager()
+        case DataType.PriorityQueue:
+            return PriorityQueueManager()
+        case DataType.Dictionary:
+            return DictionaryManager()
         }
     }
     

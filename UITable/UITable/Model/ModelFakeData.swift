@@ -42,6 +42,31 @@ class ModelFakeData {
         return -1
     }
     
+    func getIndexWithBiggerPriority (priority: Int) -> Int {
+        if priority == 0 {
+            return arrayValues.count
+        }
+        else {
+            for i in 0..<arrayValues.count {
+                let tmp = Int((arrayValues[i].helperValue).components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+                if tmp! < priority { return i }
+            }
+        }
+        return arrayValues.count
+    }
+    
+    
+    func getIndexWithBiggerKey (key: String) -> Int {
+            for i in 0..<arrayValues.count {
+                let tmp = arrayValues[i].value
+                if tmp > key {
+                    return i
+                }
+            }
+        return arrayValues.count
+    }
+    
+    
     
     func append (value: String, helperValue: String, state: Bool) {
        arrayValues.append((value, helperValue, state))
@@ -60,6 +85,8 @@ class ModelFakeData {
     }
     
     func setState(at: Int, state: Bool) {
+        guard arrayValues.count >= 0  else { print ("Index out of range"); return }
+        print(at)
         arrayValues[at].isCommit = state
     }
     
@@ -68,6 +95,7 @@ class ModelFakeData {
     }
     
     func setHelperValue(at: Int, helperValue: String) {
+        guard arrayValues.count != 0  else { print ("Index out of range"); return }
         arrayValues[at].helperValue = helperValue
     }
     

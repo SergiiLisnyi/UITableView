@@ -30,6 +30,9 @@
 		289A67442089C7FF0043EC4B /* WKWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A67432089C7FF0043EC4B /* WKWebVC.swift */; };
 		289A67462089C8330043EC4B /* SFSafariVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A67452089C8330043EC4B /* SFSafariVC.swift */; };
 		289CE6202085C7CA006D11FB /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289CE61F2085C7CA006D11FB /* EntityProtocol.swift */; };
+		28A7AB6520999F15002D9825 /* ListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7AB6420999F15002D9825 /* ListManager.swift */; };
+		28A7AB672099A872002D9825 /* PriorityQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7AB662099A872002D9825 /* PriorityQueueManager.swift */; };
+		28A7AB692099D47D002D9825 /* DictionaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7AB682099D47D002D9825 /* DictionaryManager.swift */; };
 		28B04E592090B5D900F95D2E /* VisualizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B04E582090B5D900F95D2E /* VisualizationController.swift */; };
 		28B04E5D2090BC1500F95D2E /* FakeDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B04E5C2090BC1500F95D2E /* FakeDataController.swift */; };
 		28B04E5F2090C0E000F95D2E /* DataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B04E5E2090C0E000F95D2E /* DataTableCell.swift */; };
@@ -90,6 +93,9 @@
 		289A67432089C7FF0043EC4B /* WKWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebVC.swift; sourceTree = "<group>"; };
 		289A67452089C8330043EC4B /* SFSafariVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariVC.swift; sourceTree = "<group>"; };
 		289CE61F2085C7CA006D11FB /* EntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
+		28A7AB6420999F15002D9825 /* ListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListManager.swift; sourceTree = "<group>"; };
+		28A7AB662099A872002D9825 /* PriorityQueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueManager.swift; sourceTree = "<group>"; };
+		28A7AB682099D47D002D9825 /* DictionaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryManager.swift; sourceTree = "<group>"; };
 		28B04E582090B5D900F95D2E /* VisualizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationController.swift; sourceTree = "<group>"; };
 		28B04E5C2090BC1500F95D2E /* FakeDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataController.swift; sourceTree = "<group>"; };
 		28B04E5E2090C0E000F95D2E /* DataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableCell.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 				289CE61F2085C7CA006D11FB /* EntityProtocol.swift */,
 				282BF704208DCCA4006ECD82 /* WebProtocol.swift */,
 				28BE36B92093535F00A2986F /* FakeDataProtocol.swift */,
+				28BE36B52093319C00A2986F /* AdapterProtocol.swift */,
 				282394DD2091A9D300F752E7 /* ATDControlProtocol.swift */,
 			);
 			path = Protocol;
@@ -184,9 +191,8 @@
 				28BE36BB2093658300A2986F /* Manager */,
 				28BE36B72093434D00A2986F /* ActionButton.swift */,
 				280ED2E42096E72500FB5BC3 /* ActionTextField.swift */,
-				286129BF207F647D0070600C /* AppDelegate.swift */,
 				28BE36B32093277000A2986F /* Adapter.swift */,
-				28BE36B52093319C00A2986F /* AdapterProtocol.swift */,
+				286129BF207F647D0070600C /* AppDelegate.swift */,
 				28D93FF42091D4CE00D5900F /* ControlManagerFactory.swift */,
 				28B04E5E2090C0E000F95D2E /* DataTableCell.swift */,
 				286129EF207F71330070600C /* DataStructureViewCell.swift */,
@@ -234,6 +240,9 @@
 				280ED2E22096E0C900FB5BC3 /* SetManager.swift */,
 				280ED2E82097350C00FB5BC3 /* MultiSetManager.swift */,
 				280ED2EA2097595F00FB5BC3 /* DequeueManager.swift */,
+				28A7AB6420999F15002D9825 /* ListManager.swift */,
+				28A7AB662099A872002D9825 /* PriorityQueueManager.swift */,
+				28A7AB682099D47D002D9825 /* DictionaryManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 				28B04E5F2090C0E000F95D2E /* DataTableCell.swift in Sources */,
 				28B04E5D2090BC1500F95D2E /* FakeDataController.swift in Sources */,
 				280ED2E32096E0C900FB5BC3 /* SetManager.swift in Sources */,
+				28A7AB692099D47D002D9825 /* DictionaryManager.swift in Sources */,
 				286129F0207F71330070600C /* DataStructureViewCell.swift in Sources */,
 				286129C0207F647D0070600C /* AppDelegate.swift in Sources */,
 				28BE36B82093434D00A2986F /* ActionButton.swift in Sources */,
@@ -385,12 +395,14 @@
 				28B04E592090B5D900F95D2E /* VisualizationController.swift in Sources */,
 				282394DE2091A9D300F752E7 /* ATDControlProtocol.swift in Sources */,
 				28D93FF12091D38C00D5900F /* StackManager.swift in Sources */,
+				28A7AB672099A872002D9825 /* PriorityQueueManager.swift in Sources */,
 				286C9FB92080A890006AA8FF /* ArrayData.swift in Sources */,
 				282BF705208DCCA4006ECD82 /* WebProtocol.swift in Sources */,
 				280ED2EB2097595F00FB5BC3 /* DequeueManager.swift in Sources */,
 				28318B832080CD0000A3E4C4 /* DataStructureEntity.swift in Sources */,
 				286C9FB72080A680006AA8FF /* DataEntityProtocol.swift in Sources */,
 				28BE36B62093319C00A2986F /* AdapterProtocol.swift in Sources */,
+				28A7AB6520999F15002D9825 /* ListManager.swift in Sources */,
 				280ED2E92097350C00FB5BC3 /* MultiSetManager.swift in Sources */,
 				28BE36B42093277000A2986F /* Adapter.swift in Sources */,
 				289A67462089C8330043EC4B /* SFSafariVC.swift in Sources */,

@@ -11,7 +11,7 @@ import SafariServices
 
 class SFSafariVC: UIViewController, SFSafariViewControllerDelegate, WebProtocol {
     
-    var getLink: String?
+    var getLink: String!
     var vc: SFSafariViewController!
     var isDone = false
     

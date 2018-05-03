@@ -14,6 +14,5 @@ protocol ATDControlProtocol {
     
     func createMenu() -> [TypeDate]
     
-    func setDelegate(delegate: FakeDataProtocol)
     
 }

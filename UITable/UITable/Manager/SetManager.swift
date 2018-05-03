@@ -13,10 +13,6 @@ class SetManager: ATDControlProtocol {
     var delegate: FakeDataProtocol?
     var value = ""
     
-    func setDelegate(delegate: FakeDataProtocol) {
-        self.delegate = delegate
-    }
-    
     func change(_ value: String) {
         self.value = value
     }
@@ -29,7 +25,7 @@ class SetManager: ATDControlProtocol {
             if data.modelData.contains(value: self.value) {
                 print ("set contains this value")
                 let index = data.modelData.getIndex(value: self.value)
-                data.light(index: index)
+                data.highLight(arr: [index])
                 return
             }
             data.add(value: self.value, index: 0)
@@ -43,14 +39,13 @@ class SetManager: ATDControlProtocol {
             }
                 print ("set no have this value")
             return
-            
         })
         
-        arrayTypeData.append(TypeDate.textField(title: "enterValue", action: change))
+        arrayTypeData.append(TypeDate.textField(placeholder: "value", keyboardType: .numberPad, action: change))
         
         arrayTypeData.append(TypeDate.button(title: "commit") {
             guard let data = self.delegate else { return }
-            data.commit()
+           // data.commit()
         })
         return arrayTypeData
     }

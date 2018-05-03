@@ -9,21 +9,21 @@
 import UIKit
 
 class FakeDataController: UIViewController, FakeDataProtocol {
+  
 
     @IBOutlet weak var dataTable: UITableView!
     
-    var modelData = ModelFakeData()
+    let modelData = ModelFakeData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataTable.separatorColor = UIColor.black
     }
     
     func add(value: String, index: Int) {
         guard index <= modelData.count  else { print ("Index out of range"); return }
         guard value.count != 0 else { print ("Empty value"); return }
         
-        modelData.insert(value: value, helperValue: "", state: false, at: index)
+        modelData.insert(value: value, helperValue: "", state: true, at: index)
         dataTable.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
@@ -33,15 +33,22 @@ class FakeDataController: UIViewController, FakeDataProtocol {
         dataTable.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
-    func commit() {
+    
+    //FIXME: FOREACH?
+//    func commit() {
+//        for i in 0..<modelData.count{
+//            modelData.setState(at: i, state: true)
+//        }
+//        dataTable.reloadData()
+//    }
+    
+    func highLight(arr: [Int]) {
         for i in 0..<modelData.count{
             modelData.setState(at: i, state: true)
         }
-        dataTable.reloadData()
-    }
-    
-    func light(index: Int) {
-        modelData.setState(at: index, state: false)
+        for i in 0..<arr.count{
+            modelData.setState(at: arr[i], state: false)
+        }
         dataTable.reloadData()
     }
 }
@@ -53,7 +60,7 @@ extension FakeDataController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DataTableCell.identifier, for: indexPath) as? DataTableCell else  {
             return UITableViewCell()
         }
-        cell.label?.text = modelData.getValue(at: indexPath.row) + modelData.getHelperValue(at: indexPath.row)
+        cell.label.text = modelData.getValue(at: indexPath.row) + modelData.getHelperValue(at: indexPath.row)
         modelData.getState(at: indexPath.row) ? (cell.label.backgroundColor = UIColor.clear) : (cell.label.backgroundColor = UIColor.red)
         return cell
     }

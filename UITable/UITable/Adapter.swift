@@ -9,9 +9,9 @@
 import Foundation
 import  UIKit
 
-class Adapter {
-    
-    func place(control: ATDControlProtocol, view: UIStackView){
+class Adapter: AdapterProtocol {
+
+    func createMenu(control: ATDControlProtocol, view: UIStackView) {
         let arr: [TypeDate] = control.createMenu()
        
         for typeDate in arr {
@@ -19,8 +19,8 @@ class Adapter {
             case .button(let title, let action):
                 view.addArrangedSubview(ActionButton(title: title, action: action))
         
-            case .textField(let title, let action):
-                view.addArrangedSubview(ActionTextField(title: title, action: action))
+            case .textField(let placeholder, let keyboardType, let action):
+                view.addArrangedSubview(ActionTextField(placeholder: placeholder, keyboardType: keyboardType, action: action))
             }
         }
     }
@@ -28,24 +28,5 @@ class Adapter {
 
 enum TypeDate {
     case button(title: String, action: ()->()) //MARK FIXME ()?
-    case textField(title: String, action: (String)->())
-    
-//    func getTitle() -> String {
-//        switch self {
-//        case .button(let title, _):
-//            return title
-//        case .textField(let title, _):
-//            return title
-//        }
-//    }
-//    
-//    func getAction() -> (String)->() {
-//        switch self {
-//        case .button(_, let action):
-//            return action
-//        case .textField(_, let action):
-//            return action
-//        }
-//    }
-    
+    case textField(placeholder: String, keyboardType: UIKeyboardType, action: (String)->())
 }

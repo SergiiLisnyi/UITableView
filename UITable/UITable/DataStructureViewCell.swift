@@ -23,7 +23,7 @@ class DataStructureViewCell: UITableViewCell {
 
 extension DataStructureViewCell: ConfigureCellProtocol {
     
-    func configure(model: EntityProtocol) {
+    func configureWith(model: EntityProtocol) {
         label.text = model.name
     }
 }

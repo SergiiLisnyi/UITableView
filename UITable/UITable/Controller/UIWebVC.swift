@@ -10,7 +10,7 @@ import UIKit
 
 class UIWebVC: UIViewController, WebProtocol {
    
-    var getLink: String?
+    var getLink: String!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var backButton: UIButton!
     

@@ -13,17 +13,13 @@ class QueueManager: ATDControlProtocol {
     
     var delegate: FakeDataProtocol?
     
-    func setDelegate(delegate: FakeDataProtocol) {
-        self.delegate = delegate
-    }
-    
     func createMenu() -> [TypeDate] {
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "enqueue") {
             guard let data = self.delegate else { return }
-            let index = 0
             let value = String(data.modelData.count)
-            data.add(value: value, index: index)
+            data.add(value: value, index: 0)
+            data.highLight(arr: [0, data.modelData.count-1])
         })
         
         arrayTypeData.append(TypeDate.button(title: "dequeue") {
@@ -31,13 +27,11 @@ class QueueManager: ATDControlProtocol {
 
             let index = data.modelData.count - 1
             guard index >= 0  else { print ("Index out of range"); return }
+            data.highLight(arr: [0, index-1])
             data.deleteToIndex(index: index)
+            
         })
-        
-        arrayTypeData.append(TypeDate.button(title: "commit") {
-            guard let data = self.delegate else { return }
-            data.commit()
-        })
+
         return arrayTypeData
     }
 }

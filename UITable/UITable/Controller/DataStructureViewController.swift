@@ -33,7 +33,7 @@ class DataStructureViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DataStructureViewCell else {
             return UITableViewCell()
         }
-        cell.configure(model: modelDataStructure.getDataStructure(at: indexPath.row))
+        cell.configureWith(model: modelDataStructure.getDataStructure(at: indexPath.row))
         return cell
     }
     

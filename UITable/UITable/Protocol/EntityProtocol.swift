@@ -10,6 +10,7 @@ import Foundation
 
 protocol EntityProtocol {
     var name: String { get }
-    var descr: String { get }
+    var type: DataType { get }
+    var definition: String { get }
     var url: String { get }
 }

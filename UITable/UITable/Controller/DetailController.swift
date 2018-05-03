@@ -25,7 +25,7 @@ class DetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textLabel.text = model.descr
+        textLabel.text = model.definition
         title = model.name
         viewForOpacity.addCreateOpacityGradient()
     }
@@ -36,7 +36,7 @@ class DetailController: UIViewController {
                               duration: 0.3,
                               options: .transitionCrossDissolve,
                               animations: {
-                                self.showTextButton.setTitle("Less")
+                                self.showTextButton.setTitle("Less", for: .normal)
                                 self.constrainHeightViewToSuperView.priority = UILayoutPriority.defaultLow
                                 self.constrainBottomTopToView.priority = UILayoutPriority.defaultLow
                                 self.viewForOpacity.isHidden = true
@@ -48,7 +48,7 @@ class DetailController: UIViewController {
                               duration: 0.3,
                               options: .transitionCrossDissolve,
                               animations: {
-                                self.showTextButton.setTitle("More")
+                                self.showTextButton.setTitle("More", for: .normal)
                                 self.constrainHeightViewToSuperView.priority = UILayoutPriority(self.highPriority)
                                 self.constrainBottomTopToView.priority = UILayoutPriority(self.highPriority)
                                 self.viewForOpacity.isHidden = false
@@ -100,11 +100,6 @@ extension UIView {
     }
 }
 
-extension UIButton {
-    func setTitle(_ title: String) {
-        setTitle(title, for: .normal)
-    }
-}
 //MARK: FIXME
 enum ActionType {
     case UIWebView
@@ -112,17 +107,31 @@ enum ActionType {
     case SFSafariView
     case Cancel
     
-    var titleAndControllerID: (title: String, controllerID: String) {
+    var title: (String) {
         switch self {
         case .UIWebView:
-            return ("UIWebView", "uiWebID")
+            return ("UIWebView")
         case .WKWebView:
-            return ("WKWebView", "wkWebID")
+            return ("WKWebView")
         case .SFSafariView:
-            return ("SFSafariView", "sfWebID")
+            return ("SFSafariView")
         case .Cancel:
-            return ("Cancel", "")
+            return ("Cancel")
         }
     }
+    
+    var сontrollerID: (String) {
+        switch self {
+        case .UIWebView:
+            return ("uiWebID")
+        case .WKWebView:
+            return ("wkWebID")
+        case .SFSafariView:
+            return ("sfWebID")
+        case .Cancel:
+            return ("")
+        }
+    }
+    
 }
 

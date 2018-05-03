@@ -12,10 +12,6 @@ class DequeueManager: ATDControlProtocol {
     
     var delegate: FakeDataProtocol?
     
-    func setDelegate(delegate: FakeDataProtocol) {
-        self.delegate = delegate
-    }
-    
     func createMenu() -> [TypeDate] {
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "pushBack") {
@@ -48,7 +44,7 @@ class DequeueManager: ATDControlProtocol {
         
         arrayTypeData.append(TypeDate.button(title: "commit") {
             guard let data = self.delegate else { return }
-            data.commit()
+           // data.commit()
         })
         return arrayTypeData
     }

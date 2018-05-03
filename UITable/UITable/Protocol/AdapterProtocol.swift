@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AdapterProtocol {
-    func place()
+    func createMenu(control: ATDControlProtocol, view: UIStackView)
 }

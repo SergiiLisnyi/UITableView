@@ -12,13 +12,15 @@ class VisualizationController: UIViewController {
 
     @IBOutlet weak var stackForButtons: UIStackView!
     weak var tableController: FakeDataController?
-    var adapter = Adapter()
+    var adapter: AdapterProtocol!
     var control: ATDControlProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        control.setDelegate(delegate: tableController!) //FIXME FORCE
-        adapter.place(control: control, view: stackForButtons)
+
+        control.delegate = tableController! //FIXME FORCE
+        adapter = Adapter()
+        adapter.createMenu(control: control, view: stackForButtons)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

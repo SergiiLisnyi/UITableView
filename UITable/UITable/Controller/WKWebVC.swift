@@ -11,7 +11,7 @@ import WebKit
 
 class WKWebVC: UIViewController, WKUIDelegate, WebProtocol {
     
-    var getLink: String?
+    var getLink: String!
     var webView: WKWebView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var buttonDone: UIButton!

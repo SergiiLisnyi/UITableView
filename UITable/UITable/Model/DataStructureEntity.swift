@@ -11,12 +11,27 @@ import Foundation
 struct  DataStructureEntity: EntityProtocol  {
     
     internal var name: String
-    internal var descr: String
+    internal let type: DataType
+    internal var definition: String
     internal var url: String
     
-    init(name: String, url: String, descr: String) {
+
+    
+    init(name: String, type: DataType, url: String? = nil, definition: String) {
         self.name = name
-        self.url = url
-        self.descr = descr
+        self.type = type
+        self.url = url!
+        self.definition = definition
     }
+}
+
+enum DataType : String {
+    case Stack = "Stack"
+    case Queue = "Queue"
+    case Set = "Set"
+    case Dequeu = "Dequeu"
+    case PriorityQueue = "PriorityQueue"
+    case List = "List"
+    case MultiSet = "MultiSet"
+    case Dictionary = "Dictionary"
 }
