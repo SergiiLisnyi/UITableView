@@ -27,16 +27,15 @@ class MultiSetManager: ATDControlProtocol {
             if let index = self.model.contains(value: self.value) {
                 let repetition = self.model.plusNumberOfRepetitions(at: index)
                 self.model.setRepetition(at: index, repetition: repetition)
+                data.highLight(index: nil)
                 data.deleteToIndex(index: index)
                 data.add(value: self.value + repetition, index: index)
                 data.highLight(index: index)
-                
             } else {
-                
+                data.highLight(index: nil)
                 self.model.add(value: self.value, repetition: "")
                 data.add(value: self.value, index: 0)
                 data.highLight(index: 0)
-                
             }
         })
         
@@ -46,6 +45,8 @@ class MultiSetManager: ATDControlProtocol {
             guard let data = self.delegate else { return }
 
             if let index = self.model.contains(value: self.value) {
+                data.highLight(index: nil)
+                data.highLight(index: index)
                 data.deleteToIndex(index: index)
                 let repetition = self.model.getRepetition(at: index)
                 if repetition.count == 0  {
@@ -58,7 +59,6 @@ class MultiSetManager: ATDControlProtocol {
             }
             print ("set no have this value")
             return
-            
         })
         return arrayTypeData
     }

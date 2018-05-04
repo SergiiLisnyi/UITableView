@@ -27,28 +27,33 @@ class DictionaryManager: ATDControlProtocol {
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "add") {
             guard let data = self.delegate else { return }
-            
             if let index = self.model.contains(key: self.key) {
                 print ("set contains this key")
+                data.highLight(index: nil)
                 data.highLight(index: index)
                 return
             }
-            
             else if self.model.count == 0 {
+                data.highLight(index: nil)
                 data.add(value: self.key + " - value: " + self.value, index: 0)
                 self.model.add(value: self.value, key: self.key, at: 0)
+                data.highLight(index: 0)
+                
             }
             else {
                 data.highLight(index: nil)
                 let indexCurrent = self.model.getIndexWithBiggerKey (key: self.key)
                 data.add(value: self.key + " - value: " + self.value, index: indexCurrent)
                 self.model.add(value: self.value, key: self.key, at: indexCurrent)
+                data.highLight(index: indexCurrent)
             }
         })
         
         arrayTypeData.append(TypeDate.button(title: "delete") {
             guard let data = self.delegate else { return }
              if let index = self.model.contains(key: self.key) {
+                data.highLight(index: nil)
+                data.highLight(index: index)
                 data.deleteToIndex(index: index)
                 self.model.delete(index: index)
             }

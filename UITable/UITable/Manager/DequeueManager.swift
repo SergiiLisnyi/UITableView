@@ -18,6 +18,7 @@ class DequeueManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "pushBack") {
             guard let data = self.delegate else { return }
             self.model.pushBack(value: self.model.valueCount)
+            data.highLight(index: nil)
             data.add(value: self.model.valueCount, index: 0)
             data.highLight(index: 0)
         })
@@ -25,6 +26,7 @@ class DequeueManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "pushFront") {
             guard let data = self.delegate else { return }
             if let index = self.model.pushFront(value: self.model.valueCount) {
+                data.highLight(index: nil)
                 data.add(value: self.model.valueCount, index: index)
                 data.highLight(index: index)
             }
@@ -33,12 +35,16 @@ class DequeueManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "popBack") {
             guard let data = self.delegate else { return }
             self.model.popBack()
+            data.highLight(index: nil)
+            data.highLight(index: 0)
             data.deleteToIndex(index: 0)
         })
         
         arrayTypeData.append(TypeDate.button(title: "popFront") {
             guard let data = self.delegate else { return }
             if let index = self.model.popFront() {
+                data.highLight(index: nil)
+                data.highLight(index: index)
                 data.deleteToIndex(index: index)
             }
         })

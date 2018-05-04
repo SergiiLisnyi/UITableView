@@ -24,6 +24,7 @@ class ListManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "addByIndex") {
             guard let data = self.delegate, let index = self.index else { return }
             self.model.add(value: self.model.valueCount, index: index)
+            data.highLight(index: nil)
             data.add(value: self.model.valueCount, index: index)
             data.highLight(index: index)
         })
@@ -31,6 +32,8 @@ class ListManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "deleteByIndex") {
             guard let data = self.delegate, let index = self.index else { return }
             self.model.delete(index: index)
+            data.highLight(index: nil)
+            data.highLight(index: index)
             data.deleteToIndex(index: index)
         })
         arrayTypeData.append(TypeDate.textField(placeholder: "index", keyboardType: .numberPad, action: change))

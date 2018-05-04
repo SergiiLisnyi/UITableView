@@ -19,14 +19,17 @@ class QueueManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "enqueue") {
             guard let data = self.delegate else { return }
             self.model.enqueue(value: self.model.valueCount)
-            data.highLight(index: 0)
+            data.highLight(index: nil)
             data.add(value: self.model.valueCount, index: 0)
+            data.highLight(index: 0)
         })
         
         arrayTypeData.append(TypeDate.button(title: "dequeue") {
             guard let data = self.delegate else { return }
             if let index = self.model.dequeue(){
-            data.deleteToIndex(index: index)
+                data.highLight(index: nil)
+                data.highLight(index: index)
+                data.deleteToIndex(index: index)
             }
         })
         return arrayTypeData

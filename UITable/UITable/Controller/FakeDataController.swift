@@ -14,7 +14,7 @@ class FakeDataController: UIViewController, FakeDataProtocol {
     @IBOutlet weak var dataTable: UITableView!
     
     var arrayValues: [String] = []
-    var indexLight: Int?
+    var indexLight = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,33 +31,31 @@ class FakeDataController: UIViewController, FakeDataProtocol {
         guard index < arrayValues.count  else { print ("Index out of range"); return }
         arrayValues.remove(at: index)
         dataTable.deleteRows(at: [IndexPath(row: index, section: 0)], with: .bottom)
-        
     }
     
     func highLight(index: Int?) {
         guard let index = index else {
-            indexLight = -1
-            dataTable.reloadData()
+            let cell = dataTable.cellForRow(at: IndexPath(row: indexLight, section: 0)) as? DataTableCell
+            cell?.configureWith(text: arrayValues[indexLight], light: false)
             return
         }
             indexLight = index
-            dataTable.reloadData()
+            let cell = dataTable.cellForRow(at: IndexPath(row: index, section: 0)) as? DataTableCell
+            cell?.configureWith(text: arrayValues[index], light: true)
     }
 }
 
 extension FakeDataController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DataTableCell.identifier, for: indexPath) as? DataTableCell else  {
             return UITableViewCell()
         }
-       // print(" indexPath:  \(indexPath.row)")
-        //print(" indexLight:  \(indexLight)")
-        
-        cell.configureWith(text: arrayValues[indexPath.row], light: indexLight == indexPath.row)
+       // cell.configureWith(text: arrayValues[indexPath.row], light: indexLight == indexPath.row)
         return cell
     }
+    
+    
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayValues.count

@@ -25,16 +25,20 @@ class SetManager: ATDControlProtocol {
             guard let data = self.delegate else { return }
             if let index = self.model.contains(value: self.value) {
                 print ("set contains this value")
+                data.highLight(index: nil)
                 data.highLight(index: index)
             } else {
                 data.highLight(index: nil)
                 self.model.add(value: self.value)
             data.add(value: self.value, index: 0)
+                 data.highLight(index: 0)
             }
         })
         arrayTypeData.append(TypeDate.button(title: "delete") {
             guard let data = self.delegate else { return }
             if let index = self.model.contains(value: self.value) {
+                data.highLight(index: nil)
+                data.highLight(index: index)
                 data.deleteToIndex(index: index)
                 self.model.delete(index: index)
             } else {
