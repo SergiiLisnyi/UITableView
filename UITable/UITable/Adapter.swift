@@ -27,6 +27,6 @@ class Adapter: AdapterProtocol {
 }
 
 enum TypeDate {
-    case button(title: String, action: ()->()) //MARK FIXME ()?
+    case button(title: String, action: ()->())
     case textField(placeholder: String, keyboardType: UIKeyboardType, action: (String)->())
 }

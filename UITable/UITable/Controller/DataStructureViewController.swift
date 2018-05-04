@@ -44,7 +44,6 @@ class DataStructureViewController: UITableViewController {
         detailStoryBoard.model = modelDataStructure.getDataStructure(at: indexPath.row)
         self.navigationController?.pushViewController(detailStoryBoard, animated: true)
 
-//        print("Select cell with index: \(indexPath.row)")
 //        tableView.deselectRow(at: indexPath, animated: true)
     }
  

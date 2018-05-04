@@ -27,11 +27,13 @@ class PriorityQueueManager: ATDControlProtocol {
             if self.model.count == 0 {
                 let fullNameTitle = self.model.insert(value: self.model.valueCount, priority: String(self.priority), at: 0)
                 data.add(value: fullNameTitle, index: 0)
+                data.highLight(index: 0)
             }
             else {
                 let indexCurrent = self.model.getIndexWithBiggerPriority(priority: self.priority)
                 let fullNameTitle = self.model.insert(value: self.model.valueCount, priority: String(self.priority), at: indexCurrent )
                 data.add(value: fullNameTitle, index: indexCurrent)
+                data.highLight(index: indexCurrent)
             }
         })
         

@@ -59,21 +59,22 @@ class DetailController: UIViewController {
     
     @IBAction func openWikiButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Choose browser", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(getAction(title: "UIWebView", controllerID: "uiWebID"))
-        alert.addAction(getAction(title: "WKWebView", controllerID: "wkWebID"))
-        alert.addAction(getAction(title: "SFSafariView", controllerID: "sfWebID"))
-        alert.addAction(getAction(title: "Cancel"))
+        alert.addAction(getAction(type: .UIWebView))
+        alert.addAction(getAction(type: .WKWebView))
+        alert.addAction(getAction(type: .SFSafariView))
+        alert.addAction(getAction(type: .Cancel))
         self.present(alert, animated: true, completion: nil)
     }
-    
-    func getAction(title: String, controllerID: String? = nil) -> UIAlertAction {
-        guard let idController = controllerID else {
-            return UIAlertAction(title: title, style: .cancel)
+
+    func getAction(type: ActionType) -> UIAlertAction {
+        
+        if type == ActionType.Cancel {
+            return UIAlertAction(title: type.title, style: .cancel)
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let uiAction = UIAlertAction(title: title, style: .default, handler: {
+        let uiAction = UIAlertAction(title: type.title, style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            guard var viewController = storyboard.instantiateViewController(withIdentifier: idController) as? WebProtocol else { return }
+            guard var viewController = storyboard.instantiateViewController(withIdentifier: type.сontrollerID) as? WebProtocol else { return }
             viewController.getLink = self.model.url
             self.present(viewController as! UIViewController, animated: true)
         })
@@ -83,9 +84,7 @@ class DetailController: UIViewController {
     @IBAction func visualButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let visualizationStoryBoard = storyboard.instantiateViewController(withIdentifier: "visualStoryBoardID") as? VisualizationController else { return }
-        
         visualizationStoryBoard.control = ControlManagerFactory.getManager(model: model)
-        
         self.navigationController?.pushViewController(visualizationStoryBoard, animated: true)
     }
 }
@@ -132,6 +131,5 @@ enum ActionType {
             return ("")
         }
     }
-    
 }
 

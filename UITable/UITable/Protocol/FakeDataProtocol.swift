@@ -12,5 +12,5 @@ protocol FakeDataProtocol : class {
     
     func deleteToIndex(index: Int)
     func add(value: String, index: Int)
-    func highLight(arr: [Int])
+    func highLight(index: Int?)
 }

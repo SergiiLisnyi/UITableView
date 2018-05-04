@@ -10,8 +10,7 @@ import Foundation
 
 protocol ATDControlProtocol {
     
-    weak var delegate: FakeDataProtocol? {get set}
-    
+    var delegate: FakeDataProtocol? {get set}
     func createMenu() -> [TypeDate]
     
     

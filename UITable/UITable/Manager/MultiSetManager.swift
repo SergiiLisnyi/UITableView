@@ -29,9 +29,14 @@ class MultiSetManager: ATDControlProtocol {
                 self.model.setRepetition(at: index, repetition: repetition)
                 data.deleteToIndex(index: index)
                 data.add(value: self.value + repetition, index: index)
+                data.highLight(index: index)
+                
             } else {
+                
                 self.model.add(value: self.value, repetition: "")
                 data.add(value: self.value, index: 0)
+                data.highLight(index: 0)
+                
             }
         })
         

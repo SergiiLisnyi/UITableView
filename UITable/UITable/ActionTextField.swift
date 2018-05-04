@@ -35,38 +35,6 @@ class ActionTextField: UITextField, UITextFieldDelegate {
         }
         return true
     }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-            
-    } // became first responder
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        print ("end edit")
-      //  textField.resignFirstResponder()
-        return true
-    }
-        
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        print ("end did edit")
-        textField.resignFirstResponder()
-        
-    }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        print ("clear")
-        return true
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        //self.resignFirstResponder()
-        return true
-    }
-    
 }
 
 

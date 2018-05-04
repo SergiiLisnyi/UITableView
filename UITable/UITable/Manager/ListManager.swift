@@ -25,6 +25,7 @@ class ListManager: ATDControlProtocol {
             guard let data = self.delegate, let index = self.index else { return }
             self.model.add(value: self.model.valueCount, index: index)
             data.add(value: self.model.valueCount, index: index)
+            data.highLight(index: index)
         })
         
         arrayTypeData.append(TypeDate.button(title: "deleteByIndex") {

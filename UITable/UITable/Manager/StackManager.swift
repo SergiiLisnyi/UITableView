@@ -19,12 +19,14 @@ class StackManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "push") {
             guard let data = self.delegate else { return }
             self.model.push(value: self.model.valueCount)
+            data.highLight(index: 0)
             data.add(value: self.model.valueCount, index: 0)
         })
         
         arrayTypeData.append(TypeDate.button(title: "pop") {
             guard let data = self.delegate else { return }
             self.model.pop()
+            //data.highLight(index: 0)
             data.deleteToIndex(index: 0)
         })
         return arrayTypeData

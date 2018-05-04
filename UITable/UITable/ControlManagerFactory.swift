@@ -29,6 +29,5 @@ class ControlManagerFactory  {
         case DataType.Dictionary:
             return DictionaryManager()
         }
-    }
-    
+    }    
 }

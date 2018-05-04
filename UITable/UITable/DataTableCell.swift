@@ -17,4 +17,12 @@ class DataTableCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureWith(text: String, light: Bool) {
+        label.text = text
+        if light { label.backgroundColor = UIColor.red }
+        else { label.backgroundColor = UIColor.clear }
+        
+        //light : label.backgroundColor = UIColor.red ? label.backgroundColor = UIColor.clear
+    }
 }

@@ -25,9 +25,10 @@ class SetManager: ATDControlProtocol {
             guard let data = self.delegate else { return }
             if let index = self.model.contains(value: self.value) {
                 print ("set contains this value")
-               // data.highLight(arr: [index])
+                data.highLight(index: index)
             } else {
-            self.model.add(value: self.value)
+                data.highLight(index: nil)
+                self.model.add(value: self.value)
             data.add(value: self.value, index: 0)
             }
         })

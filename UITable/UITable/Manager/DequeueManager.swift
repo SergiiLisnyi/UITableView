@@ -19,12 +19,14 @@ class DequeueManager: ATDControlProtocol {
             guard let data = self.delegate else { return }
             self.model.pushBack(value: self.model.valueCount)
             data.add(value: self.model.valueCount, index: 0)
+            data.highLight(index: 0)
         })
         
         arrayTypeData.append(TypeDate.button(title: "pushFront") {
             guard let data = self.delegate else { return }
             if let index = self.model.pushFront(value: self.model.valueCount) {
                 data.add(value: self.model.valueCount, index: index)
+                data.highLight(index: index)
             }
         })
 

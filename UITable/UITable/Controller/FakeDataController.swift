@@ -14,6 +14,7 @@ class FakeDataController: UIViewController, FakeDataProtocol {
     @IBOutlet weak var dataTable: UITableView!
     
     var arrayValues: [String] = []
+    var indexLight: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +24,24 @@ class FakeDataController: UIViewController, FakeDataProtocol {
         guard index <= arrayValues.count  else { print ("Index out of range"); return }
         guard value.count != 0 else { print ("Empty value"); return }
         arrayValues.insert(value, at: index)
-        dataTable.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        dataTable.insertRows(at: [IndexPath(row: index, section: 0)], with: .top)
     }
     
     func deleteToIndex(index: Int) {
         guard index < arrayValues.count  else { print ("Index out of range"); return }
         arrayValues.remove(at: index)
-        dataTable.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        dataTable.deleteRows(at: [IndexPath(row: index, section: 0)], with: .bottom)
+        
     }
     
-    func highLight(arr: [Int]) {
-//        for i in 0..<modelData.count{
-//            modelData.setState(at: i, state: true)
-//        }
-//        for i in 0..<arr.count{
-//            modelData.setState(at: arr[i], state: false)
-//        }
-//        dataTable.reloadData()
+    func highLight(index: Int?) {
+        guard let index = index else {
+            indexLight = -1
+            dataTable.reloadData()
+            return
+        }
+            indexLight = index
+            dataTable.reloadData()
     }
 }
 
@@ -50,9 +52,10 @@ extension FakeDataController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DataTableCell.identifier, for: indexPath) as? DataTableCell else  {
             return UITableViewCell()
         }
-        cell.label.text = arrayValues[indexPath.row]
+       // print(" indexPath:  \(indexPath.row)")
+        //print(" indexLight:  \(indexLight)")
         
-        //cell.label.backgroundColor = UIColor.red
+        cell.configureWith(text: arrayValues[indexPath.row], light: indexLight == indexPath.row)
         return cell
     }
     
@@ -63,5 +66,4 @@ extension FakeDataController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }

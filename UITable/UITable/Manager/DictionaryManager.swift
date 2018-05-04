@@ -30,15 +30,16 @@ class DictionaryManager: ATDControlProtocol {
             
             if let index = self.model.contains(key: self.key) {
                 print ("set contains this key")
-               // let index = self.model.getIndex(key: self.key)
-               // data.highLight(arr: [index])
+                data.highLight(index: index)
                 return
             }
+            
             else if self.model.count == 0 {
                 data.add(value: self.key + " - value: " + self.value, index: 0)
                 self.model.add(value: self.value, key: self.key, at: 0)
             }
             else {
+                data.highLight(index: nil)
                 let indexCurrent = self.model.getIndexWithBiggerKey (key: self.key)
                 data.add(value: self.key + " - value: " + self.value, index: indexCurrent)
                 self.model.add(value: self.value, key: self.key, at: indexCurrent)

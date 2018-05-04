@@ -19,6 +19,7 @@ class QueueManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "enqueue") {
             guard let data = self.delegate else { return }
             self.model.enqueue(value: self.model.valueCount)
+            data.highLight(index: 0)
             data.add(value: self.model.valueCount, index: 0)
         })
         
