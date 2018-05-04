@@ -12,6 +12,7 @@ class ListManager: ATDControlProtocol {
     
     var delegate: FakeDataProtocol?
     var index: Int!
+    let model = ListModel()
     
     func change(_ value: String) {
         guard let index = Int(value) else { return }
@@ -22,21 +23,16 @@ class ListManager: ATDControlProtocol {
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "addByIndex") {
             guard let data = self.delegate, let index = self.index else { return }
-            let value = String(data.modelData.count)
-            data.add(value: value, index: index)
+            self.model.add(value: self.model.valueCount, index: index)
+            data.add(value: self.model.valueCount, index: index)
         })
         
         arrayTypeData.append(TypeDate.button(title: "deleteByIndex") {
             guard let data = self.delegate, let index = self.index else { return }
+            self.model.delete(index: index)
             data.deleteToIndex(index: index)
         })
-        
         arrayTypeData.append(TypeDate.textField(placeholder: "index", keyboardType: .numberPad, action: change))
-        
-        arrayTypeData.append(TypeDate.button(title: "commit") {
-            guard let data = self.delegate else { return }
-           // data.commit()
-        })
         return arrayTypeData
     }
 }

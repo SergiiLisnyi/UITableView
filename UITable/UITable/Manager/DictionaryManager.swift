@@ -13,8 +13,9 @@ class DictionaryManager: ATDControlProtocol {
     var delegate: FakeDataProtocol?
     var value = ""
     var key = ""
+    let model = DictionaryModel()
     
-    func change(_ value: String) {
+    func changeValue(_ value: String) {
         self.value = value
     }
     
@@ -27,36 +28,33 @@ class DictionaryManager: ATDControlProtocol {
         arrayTypeData.append(TypeDate.button(title: "add") {
             guard let data = self.delegate else { return }
             
-            if data.modelData.contains(value: self.key) {
+            if let index = self.model.contains(key: self.key) {
                 print ("set contains this key")
-                let index = data.modelData.getIndex(value: self.key)
-                data.highLight(arr: [index])
+               // let index = self.model.getIndex(key: self.key)
+               // data.highLight(arr: [index])
                 return
             }
-            if data.modelData.count == 0 {
-                data.add(value: self.key, index: 0)
-                data.modelData.setHelperValue(at: 0, helperValue: " - value: " + self.value)
+            else if self.model.count == 0 {
+                data.add(value: self.key + " - value: " + self.value, index: 0)
+                self.model.add(value: self.value, key: self.key, at: 0)
             }
             else {
-                let indexCurrent = data.modelData.getIndexWithBiggerKey (key: self.key)
-                data.add(value: self.key, index: indexCurrent)
-                data.modelData.setHelperValue(at: indexCurrent, helperValue: " - value: " + String(self.value))
+                let indexCurrent = self.model.getIndexWithBiggerKey (key: self.key)
+                data.add(value: self.key + " - value: " + self.value, index: indexCurrent)
+                self.model.add(value: self.value, key: self.key, at: indexCurrent)
             }
-           // data.commit()
         })
         
         arrayTypeData.append(TypeDate.button(title: "delete") {
             guard let data = self.delegate else { return }
-            if data.modelData.contains(value: self.key) {
-                data.deleteToIndex(index: data.modelData.getIndex(value: self.key))
+             if let index = self.model.contains(key: self.key) {
+                data.deleteToIndex(index: index)
+                self.model.delete(index: index)
             }
             print ("set no have this key")
-            return
         })
-        
         arrayTypeData.append(TypeDate.textField(placeholder: "key", keyboardType: .alphabet, action: changeKey))
-        
-        arrayTypeData.append(TypeDate.textField(placeholder: "value", keyboardType: .numberPad, action: change))
+        arrayTypeData.append(TypeDate.textField(placeholder: "value", keyboardType: .numberPad, action: changeValue))
         
         return arrayTypeData
     }

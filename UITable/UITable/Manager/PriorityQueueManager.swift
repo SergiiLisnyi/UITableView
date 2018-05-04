@@ -12,6 +12,7 @@ class PriorityQueueManager: ATDControlProtocol {
     
     var delegate: FakeDataProtocol?
     var priority = 0
+    let model = PriorityQueueModel()
     
     func change(_ value: String) {
         let priority = Int(value)
@@ -22,28 +23,25 @@ class PriorityQueueManager: ATDControlProtocol {
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "insert") {
             guard let data = self.delegate else { return }
-            let value = String(data.modelData.count)
-            if data.modelData.count == 0 {
-                data.add(value: value, index: 0)
-                data.modelData.setHelperValue(at: 0, helperValue: " - priority: " + String(self.priority))
+            
+            if self.model.count == 0 {
+                let fullNameTitle = self.model.insert(value: self.model.valueCount, priority: String(self.priority), at: 0)
+                data.add(value: fullNameTitle, index: 0)
             }
             else {
-                let indexCurrent = data.modelData.getIndexWithBiggerPriority(priority: self.priority)
-                data.add(value: value, index: indexCurrent)
-                data.modelData.setHelperValue(at: indexCurrent, helperValue: " - priority: " + String(self.priority))
+                let indexCurrent = self.model.getIndexWithBiggerPriority(priority: self.priority)
+                let fullNameTitle = self.model.insert(value: self.model.valueCount, priority: String(self.priority), at: indexCurrent )
+                data.add(value: fullNameTitle, index: indexCurrent)
             }
-           // data.commit()
         })
         
         arrayTypeData.append(TypeDate.textField(placeholder: "priority", keyboardType: .numberPad, action: change))
         
         arrayTypeData.append(TypeDate.button(title: "extract") {
             guard let data = self.delegate else { return }
+            self.model.extract(index: 0)
             data.deleteToIndex(index: 0)
         })
-        
-        
-        
         return arrayTypeData
     }
 }

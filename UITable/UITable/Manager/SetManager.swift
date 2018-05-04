@@ -12,41 +12,35 @@ class SetManager: ATDControlProtocol {
     
     var delegate: FakeDataProtocol?
     var value = ""
+    let model = SetModel()
     
     func change(_ value: String) {
         self.value = value
     }
     
     func createMenu() -> [TypeDate] {
+        
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "add") {
             guard let data = self.delegate else { return }
-
-            if data.modelData.contains(value: self.value) {
+            if let index = self.model.contains(value: self.value) {
                 print ("set contains this value")
-                let index = data.modelData.getIndex(value: self.value)
-                data.highLight(arr: [index])
-                return
-            }
+               // data.highLight(arr: [index])
+            } else {
+            self.model.add(value: self.value)
             data.add(value: self.value, index: 0)
+            }
         })
-        
         arrayTypeData.append(TypeDate.button(title: "delete") {
             guard let data = self.delegate else { return }
-            
-            if data.modelData.contains(value: self.value) {
-                data.deleteToIndex(index: data.modelData.getIndex(value: self.value))
-            }
+            if let index = self.model.contains(value: self.value) {
+                data.deleteToIndex(index: index)
+                self.model.delete(index: index)
+            } else {
                 print ("set no have this value")
-            return
+            }
         })
-        
         arrayTypeData.append(TypeDate.textField(placeholder: "value", keyboardType: .numberPad, action: change))
-        
-        arrayTypeData.append(TypeDate.button(title: "commit") {
-            guard let data = self.delegate else { return }
-           // data.commit()
-        })
         return arrayTypeData
     }
 }

@@ -17,9 +17,4 @@ class DataTableCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    func setName(name: Int) {
-        self.label.text = String(name)
-    }
-    
 }

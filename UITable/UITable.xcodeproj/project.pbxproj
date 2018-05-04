@@ -16,6 +16,10 @@
 		282394DE2091A9D300F752E7 /* ATDControlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282394DD2091A9D300F752E7 /* ATDControlProtocol.swift */; };
 		282BF705208DCCA4006ECD82 /* WebProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282BF704208DCCA4006ECD82 /* WebProtocol.swift */; };
 		28318B832080CD0000A3E4C4 /* DataStructureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28318B822080CD0000A3E4C4 /* DataStructureEntity.swift */; };
+		285EC864209AFCED004920B4 /* StackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EC863209AFCED004920B4 /* StackModel.swift */; };
+		285EC866209B05C3004920B4 /* QueueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EC865209B05C3004920B4 /* QueueModel.swift */; };
+		285EC868209B0A0C004920B4 /* SetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EC867209B0A0C004920B4 /* SetModel.swift */; };
+		285EC86A209B18CA004920B4 /* MultiSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EC869209B18CA004920B4 /* MultiSetModel.swift */; };
 		286129C0207F647D0070600C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286129BF207F647D0070600C /* AppDelegate.swift */; };
 		286129C5207F647D0070600C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286129C3207F647D0070600C /* Main.storyboard */; };
 		286129C7207F647D0070600C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286129C6207F647D0070600C /* Assets.xcassets */; };
@@ -26,6 +30,10 @@
 		286129F0207F71330070600C /* DataStructureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286129EF207F71330070600C /* DataStructureViewCell.swift */; };
 		286C9FB72080A680006AA8FF /* DataEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C9FB62080A680006AA8FF /* DataEntityProtocol.swift */; };
 		286C9FB92080A890006AA8FF /* ArrayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C9FB82080A890006AA8FF /* ArrayData.swift */; };
+		288D4DDC209B24E1001403FC /* DequeueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D4DDB209B24E1001403FC /* DequeueModel.swift */; };
+		288D4DDE209B29E4001403FC /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D4DDD209B29E4001403FC /* ListModel.swift */; };
+		288D4DE0209B2DA0001403FC /* PriorityQueueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D4DDF209B2DA0001403FC /* PriorityQueueModel.swift */; };
+		288D4DE2209B368C001403FC /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D4DE1209B368C001403FC /* DictionaryModel.swift */; };
 		289A67422089C7C00043EC4B /* UIWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A67412089C7C00043EC4B /* UIWebVC.swift */; };
 		289A67442089C7FF0043EC4B /* WKWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A67432089C7FF0043EC4B /* WKWebVC.swift */; };
 		289A67462089C8330043EC4B /* SFSafariVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A67452089C8330043EC4B /* SFSafariVC.swift */; };
@@ -42,7 +50,6 @@
 		28BE36BA2093535F00A2986F /* FakeDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE36B92093535F00A2986F /* FakeDataProtocol.swift */; };
 		28BE36BD209365FF00A2986F /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE36BC209365FF00A2986F /* QueueManager.swift */; };
 		28D93FF12091D38C00D5900F /* StackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D93FF02091D38C00D5900F /* StackManager.swift */; };
-		28D93FF32091D43A00D5900F /* ModelFakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D93FF22091D43A00D5900F /* ModelFakeData.swift */; };
 		28D93FF52091D4CE00D5900F /* ControlManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D93FF42091D4CE00D5900F /* ControlManagerFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +80,10 @@
 		282394DD2091A9D300F752E7 /* ATDControlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATDControlProtocol.swift; sourceTree = "<group>"; };
 		282BF704208DCCA4006ECD82 /* WebProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebProtocol.swift; sourceTree = "<group>"; };
 		28318B822080CD0000A3E4C4 /* DataStructureEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureEntity.swift; sourceTree = "<group>"; };
+		285EC863209AFCED004920B4 /* StackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackModel.swift; sourceTree = "<group>"; };
+		285EC865209B05C3004920B4 /* QueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueModel.swift; sourceTree = "<group>"; };
+		285EC867209B0A0C004920B4 /* SetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetModel.swift; sourceTree = "<group>"; };
+		285EC869209B18CA004920B4 /* MultiSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSetModel.swift; sourceTree = "<group>"; };
 		286129BC207F647D0070600C /* UITable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286129BF207F647D0070600C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286129C4207F647D0070600C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +100,10 @@
 		286129EF207F71330070600C /* DataStructureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureViewCell.swift; sourceTree = "<group>"; };
 		286C9FB62080A680006AA8FF /* DataEntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntityProtocol.swift; sourceTree = "<group>"; };
 		286C9FB82080A890006AA8FF /* ArrayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayData.swift; sourceTree = "<group>"; };
+		288D4DDB209B24E1001403FC /* DequeueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequeueModel.swift; sourceTree = "<group>"; };
+		288D4DDD209B29E4001403FC /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		288D4DDF209B2DA0001403FC /* PriorityQueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueModel.swift; sourceTree = "<group>"; };
+		288D4DE1209B368C001403FC /* DictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
 		289A67412089C7C00043EC4B /* UIWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebVC.swift; sourceTree = "<group>"; };
 		289A67432089C7FF0043EC4B /* WKWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebVC.swift; sourceTree = "<group>"; };
 		289A67452089C8330043EC4B /* SFSafariVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariVC.swift; sourceTree = "<group>"; };
@@ -105,7 +120,6 @@
 		28BE36B92093535F00A2986F /* FakeDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataProtocol.swift; sourceTree = "<group>"; };
 		28BE36BC209365FF00A2986F /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		28D93FF02091D38C00D5900F /* StackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackManager.swift; sourceTree = "<group>"; };
-		28D93FF22091D43A00D5900F /* ModelFakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFakeData.swift; sourceTree = "<group>"; };
 		28D93FF42091D4CE00D5900F /* ControlManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlManagerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,7 +241,14 @@
 			children = (
 				286C9FB82080A890006AA8FF /* ArrayData.swift */,
 				28318B822080CD0000A3E4C4 /* DataStructureEntity.swift */,
-				28D93FF22091D43A00D5900F /* ModelFakeData.swift */,
+				285EC863209AFCED004920B4 /* StackModel.swift */,
+				285EC865209B05C3004920B4 /* QueueModel.swift */,
+				285EC867209B0A0C004920B4 /* SetModel.swift */,
+				285EC869209B18CA004920B4 /* MultiSetModel.swift */,
+				288D4DDB209B24E1001403FC /* DequeueModel.swift */,
+				288D4DDD209B29E4001403FC /* ListModel.swift */,
+				288D4DDF209B2DA0001403FC /* PriorityQueueModel.swift */,
+				288D4DE1209B368C001403FC /* DictionaryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,9 +402,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288D4DE0209B2DA0001403FC /* PriorityQueueModel.swift in Sources */,
 				28B04E5F2090C0E000F95D2E /* DataTableCell.swift in Sources */,
+				288D4DDE209B29E4001403FC /* ListModel.swift in Sources */,
 				28B04E5D2090BC1500F95D2E /* FakeDataController.swift in Sources */,
+				285EC86A209B18CA004920B4 /* MultiSetModel.swift in Sources */,
+				285EC868209B0A0C004920B4 /* SetModel.swift in Sources */,
 				280ED2E32096E0C900FB5BC3 /* SetManager.swift in Sources */,
+				285EC866209B05C3004920B4 /* QueueModel.swift in Sources */,
 				28A7AB692099D47D002D9825 /* DictionaryManager.swift in Sources */,
 				286129F0207F71330070600C /* DataStructureViewCell.swift in Sources */,
 				286129C0207F647D0070600C /* AppDelegate.swift in Sources */,
@@ -404,15 +430,17 @@
 				28BE36B62093319C00A2986F /* AdapterProtocol.swift in Sources */,
 				28A7AB6520999F15002D9825 /* ListManager.swift in Sources */,
 				280ED2E92097350C00FB5BC3 /* MultiSetManager.swift in Sources */,
+				288D4DDC209B24E1001403FC /* DequeueModel.swift in Sources */,
 				28BE36B42093277000A2986F /* Adapter.swift in Sources */,
 				289A67462089C8330043EC4B /* SFSafariVC.swift in Sources */,
 				28D93FF52091D4CE00D5900F /* ControlManagerFactory.swift in Sources */,
 				2809C88220849A5C00138B46 /* DetailController.swift in Sources */,
+				285EC864209AFCED004920B4 /* StackModel.swift in Sources */,
 				289A67442089C7FF0043EC4B /* WKWebVC.swift in Sources */,
 				28BE36BA2093535F00A2986F /* FakeDataProtocol.swift in Sources */,
 				286129EE207F66120070600C /* DataStructureViewController.swift in Sources */,
 				289CE6202085C7CA006D11FB /* EntityProtocol.swift in Sources */,
-				28D93FF32091D43A00D5900F /* ModelFakeData.swift in Sources */,
+				288D4DE2209B368C001403FC /* DictionaryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

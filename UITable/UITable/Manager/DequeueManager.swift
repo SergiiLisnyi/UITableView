@@ -11,40 +11,34 @@ import Foundation
 class DequeueManager: ATDControlProtocol {
     
     var delegate: FakeDataProtocol?
+    let model = DequeueModel()
     
     func createMenu() -> [TypeDate] {
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "pushBack") {
             guard let data = self.delegate else { return }
-            let index = 0
-            let value = String(data.modelData.count)
-            self.delegate?.add(value: value, index: index)
+            self.model.pushBack(value: self.model.valueCount)
+            data.add(value: self.model.valueCount, index: 0)
         })
         
         arrayTypeData.append(TypeDate.button(title: "pushFront") {
             guard let data = self.delegate else { return }
-            let value = String(data.modelData.count)
-            let index = data.modelData.count
-            guard index >= 0  else { print ("Index out of range"); return }
-            self.delegate?.add(value: value, index: index)
+            if let index = self.model.pushFront(value: self.model.valueCount) {
+                data.add(value: self.model.valueCount, index: index)
+            }
         })
-        
+
         arrayTypeData.append(TypeDate.button(title: "popBack") {
             guard let data = self.delegate else { return }
+            self.model.popBack()
             data.deleteToIndex(index: 0)
         })
         
         arrayTypeData.append(TypeDate.button(title: "popFront") {
             guard let data = self.delegate else { return }
-            
-            let index = data.modelData.count - 1
-            guard index >= 0  else { print ("Index out of range"); return }
-            data.deleteToIndex(index: index)
-        })
-        
-        arrayTypeData.append(TypeDate.button(title: "commit") {
-            guard let data = self.delegate else { return }
-           // data.commit()
+            if let index = self.model.popFront() {
+                data.deleteToIndex(index: index)
+            }
         })
         return arrayTypeData
     }

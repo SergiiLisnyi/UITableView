@@ -11,23 +11,21 @@ import Foundation
 class StackManager: ATDControlProtocol {
     
     var delegate: FakeDataProtocol?
+    let model = StackModel()
     
     func createMenu() -> [TypeDate] {
         
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "push") {
             guard let data = self.delegate else { return }
-            let value = String(data.modelData.count)
-            
-            data.add(value: value, index: 0)
-            data.highLight(arr: [0])
-            
+            self.model.push(value: self.model.valueCount)
+            data.add(value: self.model.valueCount, index: 0)
         })
         
         arrayTypeData.append(TypeDate.button(title: "pop") {
             guard let data = self.delegate else { return }
+            self.model.pop()
             data.deleteToIndex(index: 0)
-            data.highLight(arr: [0])
         })
         return arrayTypeData
     }

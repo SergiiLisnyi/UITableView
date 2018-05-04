@@ -10,10 +10,7 @@ import Foundation
 
 protocol FakeDataProtocol : class {
     
-    var modelData: ModelFakeData { get }
     func deleteToIndex(index: Int)
-   // func commit()
     func add(value: String, index: Int)
-    
     func highLight(arr: [Int])
 }

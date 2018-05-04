@@ -13,43 +13,33 @@ class FakeDataController: UIViewController, FakeDataProtocol {
 
     @IBOutlet weak var dataTable: UITableView!
     
-    let modelData = ModelFakeData()
+    var arrayValues: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     func add(value: String, index: Int) {
-        guard index <= modelData.count  else { print ("Index out of range"); return }
+        guard index <= arrayValues.count  else { print ("Index out of range"); return }
         guard value.count != 0 else { print ("Empty value"); return }
-        
-        modelData.insert(value: value, helperValue: "", state: true, at: index)
+        arrayValues.insert(value, at: index)
         dataTable.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
     func deleteToIndex(index: Int) {
-        guard index < modelData.count  else { print ("Index out of range"); return }
-        modelData.remove(at: index)
+        guard index < arrayValues.count  else { print ("Index out of range"); return }
+        arrayValues.remove(at: index)
         dataTable.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
-    
-    //FIXME: FOREACH?
-//    func commit() {
+    func highLight(arr: [Int]) {
 //        for i in 0..<modelData.count{
 //            modelData.setState(at: i, state: true)
 //        }
+//        for i in 0..<arr.count{
+//            modelData.setState(at: arr[i], state: false)
+//        }
 //        dataTable.reloadData()
-//    }
-    
-    func highLight(arr: [Int]) {
-        for i in 0..<modelData.count{
-            modelData.setState(at: i, state: true)
-        }
-        for i in 0..<arr.count{
-            modelData.setState(at: arr[i], state: false)
-        }
-        dataTable.reloadData()
     }
 }
 
@@ -60,13 +50,14 @@ extension FakeDataController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DataTableCell.identifier, for: indexPath) as? DataTableCell else  {
             return UITableViewCell()
         }
-        cell.label.text = modelData.getValue(at: indexPath.row) + modelData.getHelperValue(at: indexPath.row)
-        modelData.getState(at: indexPath.row) ? (cell.label.backgroundColor = UIColor.clear) : (cell.label.backgroundColor = UIColor.red)
+        cell.label.text = arrayValues[indexPath.row]
+        
+        //cell.label.backgroundColor = UIColor.red
         return cell
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modelData.count
+        return arrayValues.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

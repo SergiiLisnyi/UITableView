@@ -15,8 +15,6 @@ struct  DataStructureEntity: EntityProtocol  {
     internal var definition: String
     internal var url: String
     
-
-    
     init(name: String, type: DataType, url: String? = nil, definition: String) {
         self.name = name
         self.type = type

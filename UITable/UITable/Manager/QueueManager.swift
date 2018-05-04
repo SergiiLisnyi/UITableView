@@ -8,30 +8,26 @@
 
 import Foundation
 
-
 class QueueManager: ATDControlProtocol {
     
     var delegate: FakeDataProtocol?
+    let model = QueueModel()
     
     func createMenu() -> [TypeDate] {
+        
         var arrayTypeData: Array<TypeDate> = []
         arrayTypeData.append(TypeDate.button(title: "enqueue") {
             guard let data = self.delegate else { return }
-            let value = String(data.modelData.count)
-            data.add(value: value, index: 0)
-            data.highLight(arr: [0, data.modelData.count-1])
+            self.model.enqueue(value: self.model.valueCount)
+            data.add(value: self.model.valueCount, index: 0)
         })
         
         arrayTypeData.append(TypeDate.button(title: "dequeue") {
             guard let data = self.delegate else { return }
-
-            let index = data.modelData.count - 1
-            guard index >= 0  else { print ("Index out of range"); return }
-            data.highLight(arr: [0, index-1])
+            if let index = self.model.dequeue(){
             data.deleteToIndex(index: index)
-            
+            }
         })
-
         return arrayTypeData
     }
 }
