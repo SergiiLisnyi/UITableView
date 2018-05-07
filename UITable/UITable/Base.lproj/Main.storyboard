@@ -125,6 +125,9 @@
                                         <state key="normal" title="OpenWiki">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="openWikiButtonTapped:" destination="JIY-5k-lpm" eventType="touchUpInside" id="oQn-Er-BH9"/>
                                         </connections>
@@ -231,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHd-uL-wqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437.68115942029" y="732.88043478260875"/>
+            <point key="canvasLocation" x="2428" y="905"/>
         </scene>
         <!--WebVC-->
         <scene sceneID="baL-li-K3m">
@@ -329,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D6b-Zf-A9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="733"/>
+            <point key="canvasLocation" x="1659" y="929"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bvB-0L-fYS">
@@ -410,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLE-xm-ZQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3253.6231884057975" y="803.804347826087"/>
+            <point key="canvasLocation" x="3109" y="905"/>
         </scene>
     </scenes>
 </document>

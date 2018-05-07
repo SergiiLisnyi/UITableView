@@ -13,12 +13,12 @@ struct  DataStructureEntity: EntityProtocol  {
     internal var name: String
     internal let type: DataType
     internal var definition: String
-    internal var url: String
+    internal var url: String?
     
     init(name: String, type: DataType, url: String? = nil, definition: String) {
         self.name = name
         self.type = type
-        self.url = url!
+        self.url = url
         self.definition = definition
     }
 }

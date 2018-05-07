@@ -28,6 +28,7 @@ class DetailController: UIViewController {
         textLabel.text = model.definition
         title = model.name
         viewForOpacity.addCreateOpacityGradient()
+        openWikiButton.isEnabled = model.url != nil
     }
     
     @IBAction func showTextButtonTapped(_ sender: UIButton) {
@@ -99,7 +100,6 @@ extension UIView {
     }
 }
 
-//MARK: FIXME
 enum ActionType {
     case UIWebView
     case WKWebView
