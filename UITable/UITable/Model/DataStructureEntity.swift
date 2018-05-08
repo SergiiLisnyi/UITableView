@@ -12,10 +12,10 @@ struct  DataStructureEntity: EntityProtocol  {
     
     internal var name: String
     internal let type: DataType
-    internal var definition: String
+    internal var definition: String?
     internal var url: String?
     
-    init(name: String, type: DataType, url: String? = nil, definition: String) {
+    init(name: String, type: DataType, url: String? = nil, definition: String? = nil) {
         self.name = name
         self.type = type
         self.url = url

@@ -11,6 +11,6 @@ import Foundation
 protocol EntityProtocol {
     var name: String { get }
     var type: DataType { get }
-    var definition: String { get }
+    var definition: String? { get }
     var url: String? { get }
 }

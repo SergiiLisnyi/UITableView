@@ -16,6 +16,7 @@
 		282394DE2091A9D300F752E7 /* ATDControlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282394DD2091A9D300F752E7 /* ATDControlProtocol.swift */; };
 		282BF705208DCCA4006ECD82 /* WebProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282BF704208DCCA4006ECD82 /* WebProtocol.swift */; };
 		28318B832080CD0000A3E4C4 /* DataStructureEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28318B822080CD0000A3E4C4 /* DataStructureEntity.swift */; };
+		285030CB20A1C96200315690 /* InfoDataStructure.plist in Resources */ = {isa = PBXBuildFile; fileRef = 285030CA20A1C96200315690 /* InfoDataStructure.plist */; };
 		285EC864209AFCED004920B4 /* StackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EC863209AFCED004920B4 /* StackModel.swift */; };
 		285EC866209B05C3004920B4 /* QueueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EC865209B05C3004920B4 /* QueueModel.swift */; };
 		285EC868209B0A0C004920B4 /* SetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EC867209B0A0C004920B4 /* SetModel.swift */; };
@@ -80,6 +81,7 @@
 		282394DD2091A9D300F752E7 /* ATDControlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATDControlProtocol.swift; sourceTree = "<group>"; };
 		282BF704208DCCA4006ECD82 /* WebProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebProtocol.swift; sourceTree = "<group>"; };
 		28318B822080CD0000A3E4C4 /* DataStructureEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureEntity.swift; sourceTree = "<group>"; };
+		285030CA20A1C96200315690 /* InfoDataStructure.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoDataStructure.plist; sourceTree = "<group>"; };
 		285EC863209AFCED004920B4 /* StackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackModel.swift; sourceTree = "<group>"; };
 		285EC865209B05C3004920B4 /* QueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueModel.swift; sourceTree = "<group>"; };
 		285EC867209B0A0C004920B4 /* SetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetModel.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				286129C6207F647D0070600C /* Assets.xcassets */,
 				286129C8207F647D0070600C /* LaunchScreen.storyboard */,
 				286129CB207F647D0070600C /* Info.plist */,
+				285030CA20A1C96200315690 /* InfoDataStructure.plist */,
 			);
 			path = UITable;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			files = (
 				286129CA207F647D0070600C /* LaunchScreen.storyboard in Resources */,
 				286129C7207F647D0070600C /* Assets.xcassets in Resources */,
+				285030CB20A1C96200315690 /* InfoDataStructure.plist in Resources */,
 				286129C5207F647D0070600C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
