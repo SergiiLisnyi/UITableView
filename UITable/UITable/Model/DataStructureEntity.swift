@@ -10,25 +10,26 @@ import Foundation
 
 struct  DataStructureEntity: EntityProtocol  {
     
-    private var name: String
-    private var descr: String
-    private var wikiURL: String
+    internal var name: String
+    internal let type: DataType
+    internal var definition: String?
+    internal var url: String?
     
-    init(name: String, wikiURL: String, descr: String) {
+    init(name: String, type: DataType, url: String? = nil, definition: String? = nil) {
         self.name = name
-        self.wikiURL = wikiURL
-        self.descr = descr
+        self.type = type
+        self.url = url
+        self.definition = definition
     }
-    
-    func getName() -> String {
-        return self.name
-    }
-    
-    func getDescr() -> String {
-        return self.descr
-    }
-    
-    func getURL() -> String {
-        return self.wikiURL
-    }
+}
+
+enum DataType : String {
+    case Stack = "Stack"
+    case Queue = "Queue"
+    case Set = "Set"
+    case Dequeu = "Dequeu"
+    case PriorityQueue = "PriorityQueue"
+    case List = "List"
+    case MultiSet = "MultiSet"
+    case Dictionary = "Dictionary"
 }

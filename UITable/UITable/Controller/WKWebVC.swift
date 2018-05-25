@@ -11,7 +11,7 @@ import WebKit
 
 class WKWebVC: UIViewController, WKUIDelegate, WebProtocol {
     
-    var getLink: String?
+    var getLink: String!
     var webView: WKWebView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var buttonDone: UIButton!
@@ -20,6 +20,7 @@ class WKWebVC: UIViewController, WKUIDelegate, WebProtocol {
         super.loadView()
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        contentView.frame.size.width = view.frame.size.width
         webView.frame = contentView.frame
         contentView.addSubview(webView)
     }
@@ -30,7 +31,7 @@ class WKWebVC: UIViewController, WKUIDelegate, WebProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let urlWiki = URL(string: getLink ?? "") else { return }
+        guard let link = getLink, let urlWiki = URL(string: link) else { return }
         let myRequest = URLRequest(url: urlWiki)
         webView.load(myRequest)
     }

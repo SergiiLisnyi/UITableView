@@ -33,7 +33,7 @@ class DataStructureViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DataStructureViewCell else {
             return UITableViewCell()
         }
-        cell.configure(model: modelDataStructure.getDataStructure(at: indexPath.row))
+        cell.configureWith(model: modelDataStructure.getDataStructure(at: indexPath.row))
         return cell
     }
     
@@ -44,7 +44,6 @@ class DataStructureViewController: UITableViewController {
         detailStoryBoard.model = modelDataStructure.getDataStructure(at: indexPath.row)
         self.navigationController?.pushViewController(detailStoryBoard, animated: true)
 
-//        print("Select cell with index: \(indexPath.row)")
 //        tableView.deselectRow(at: indexPath, animated: true)
     }
  

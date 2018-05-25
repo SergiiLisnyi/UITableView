@@ -9,5 +9,5 @@
 import Foundation
 
 protocol WebProtocol {
-    var getLink: String? { get set}
+    var getLink: String! { get set}
 }

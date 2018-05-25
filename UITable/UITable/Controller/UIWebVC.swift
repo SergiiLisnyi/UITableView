@@ -10,13 +10,13 @@ import UIKit
 
 class UIWebVC: UIViewController, WebProtocol {
    
-    var getLink: String?
+    var getLink: String!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let urlWiki = URL(string: getLink ?? "") else { return }
+        guard let link = getLink, let urlWiki = URL(string: link) else { return }
         let request = URLRequest(url: urlWiki)
         webView.loadRequest(request)
     }
